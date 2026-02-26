@@ -29,4 +29,10 @@
                .Only <li> have this property.
  - `::first-letter and ::first-line` : give styling to first letter or first line.
  - `::selection`: change highlighting when user selects text on a page
- - `::before and ::after`:  
+ - `::before and ::after`: they are used to add content BEFORE and AFTER element but these "ghost-element" exists within the tag.
+## Attribute Selectors ##
+ - It simply targets attributes like src, href etc.
+ - Has same specificity as classes and pseudo-classes(0,0,1,0).
+ - `[attribute]`: used to target a general attribute. eg-[src]{ }.
+ - `selector[attribute]`: is a way to find attribute that is inside their HTML tags. eg- img[src]{}.
+ - `[attribute = ""]`: used to find a specific attribute value. eg- img[src="pups.jpg"].
