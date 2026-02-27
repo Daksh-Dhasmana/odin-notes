@@ -6,6 +6,20 @@
        Select the next/following sibling.
 - `~`: General sibling combinator.
        Select the all sibling that are following the selected child 
+## Pseudo Elements ##
+ - They target/match parts of HTML which are not elements(which dont have closing tags). eg- <l1> <h1>
+ - They share same specificity as normal elements. i:e, (0,0,0,1)
+ - `::marker`: allow customization of <li> element's bullets or numbers. or a element having display: list-item.
+               .Only <li> have this property.
+ - `::first-letter and ::first-line` : give styling to first letter or first line.
+ - `::selection`: change highlighting when user selects text on a page
+ - `::before and ::after`: they are used to add content BEFORE and AFTER element but these "ghost-element" exists within the tag.
+## Attribute Selectors ##
+ - It simply targets attributes like src, href etc.
+ - Has same specificity as classes and pseudo-classes(0,0,1,0).
+ - `[attribute]`: used to target a general attribute. eg-[src]{ }.
+ - `selector[attribute]`: is a way to find attribute that is inside their HTML tags. eg- img[src]{}.
+ - `[attribute = ""]`: used to find a specific attribute value. eg- img[src="pups.jpg"].
 ## Pseudo-Classes ##
 -It is Dynamic  
 -It changes properties of the selected element based on how user reacts to that element. like clicking a button makes that button red.  
@@ -30,17 +44,3 @@
    - `:empty`: target only those element who dont have any children.
    - `:only-child`: match element who dont have any siblings. FYI:sibling means sharing same parent.
 
-## Pseudo Elements ##
- - They target/match parts of HTML which are not elements(which dont have closing tags). eg- <l1> <h1>
- - They share same specificity as normal elements. i:e, (0,0,0,1)
- - `::marker`: allow customization of <li> element's bullets or numbers. or a element having display: list-item.
-               .Only <li> have this property.
- - `::first-letter and ::first-line` : give styling to first letter or first line.
- - `::selection`: change highlighting when user selects text on a page
- - `::before and ::after`: they are used to add content BEFORE and AFTER element but these "ghost-element" exists within the tag.
-## Attribute Selectors ##
- - It simply targets attributes like src, href etc.
- - Has same specificity as classes and pseudo-classes(0,0,1,0).
- - `[attribute]`: used to target a general attribute. eg-[src]{ }.
- - `selector[attribute]`: is a way to find attribute that is inside their HTML tags. eg- img[src]{}.
- - `[attribute = ""]`: used to find a specific attribute value. eg- img[src="pups.jpg"].
