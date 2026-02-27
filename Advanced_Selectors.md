@@ -1,3 +1,7 @@
+## Child and Sibling combinators##
+ -`>`: child combinator. selects only the specified direct child of parent. leaves other grand children untouched
+      -eg:- div > p{}
+- ``
 ## Pseudo-Classes ##
 -It is Dynamic  
 -It changes properties of the selected element based on how user reacts to that element. like clicking a button makes that button red.  
