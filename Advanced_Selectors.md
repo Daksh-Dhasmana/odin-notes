@@ -1,7 +1,7 @@
 ## Child and Sibling combinators##
  -`>`: child combinator. selects only the specified direct child of parent. leaves other grand children untouched
       -eg:- div > p{}
-      -We can select grand children like div>div>div.
+      -We can select grand children too   like div>div>div.
 - `+`: Adjacent sibling combinator.
        Select the next/following sibling.
 - `~`: General sibling combinator.
