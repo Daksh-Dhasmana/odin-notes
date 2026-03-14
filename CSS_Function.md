@@ -13,3 +13,9 @@
 # 3. Max()#
 - Vice versa of min().
 - It is most useful when viewing window is exceptionally small or user uses browser's zoom features.
+
+# 4. Clamp()#
+- It is a great way to make elements fluid and responsive
+- Syntax: `clamp(MIN,IDEAL,MAX)`
+- It takes 3 values: Min(the minimum floor),Ideal(default value), Max(the maximum celing).
+- Uses Ideal value at first and if it scales, then it uses Max and Min to set the ceiling.
