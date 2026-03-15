@@ -1,4 +1,4 @@
-## Absolute Positioning##
+## Absolute Positioning ##
 - Syntax:-`position:absolute`
 - Allows us to position an element at an exact place on screen "without" disturbing other elements.
 - It removes that particular element from normal flow of document.
@@ -10,7 +10,7 @@
             - Badges (like a "New" tag on a product image).
             - Tooltips (text that appears above a button).
     
-## Fixed Positioning##
+## Fixed Positioning ##
 - Are also removed from normal flow of docs
 - They are fixed relative to viewport(viewing area of browser).
 - You tell it where to position itself and it stays there as user scrolls.
@@ -18,7 +18,7 @@
 - The element with fixed positioning will stay there as user scrolls
 - Use Cases:- nav bars, float chat buttons.
 
-## Sticky Positioning##
+## Sticky Positioning ##
 - It Scrolls with rest of content until to the limit you "set"
 
 
