@@ -1,4 +1,4 @@
-## Several functions in css##
+## Several functions in css ##
 
 # 1. Calc()#
 - helps us to calculate space for a particular element relative to other element occupied space.
