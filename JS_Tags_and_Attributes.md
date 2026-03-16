@@ -1,8 +1,8 @@
-# 1.<select> #
+# 1.<select>Tag#
 - They create the dropdown menu.
 
-# 2.<option> #
-- Each <option> defines one selectable row in dropdown list.
+# 2.<option>Tag#
+- Each <option>tag defines one selectable row in dropdown list.
 
 # 3.value=""#
 - This attribute is like a secret nickname that only browser sees.
