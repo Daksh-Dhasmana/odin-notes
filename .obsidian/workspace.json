@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "JS_Tags_and_Attributes.md",
+                "file": "CSS_Function.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "JS_Tags_and_Attributes"
+              "title": "CSS_Function"
             }
           }
         ]
@@ -182,11 +182,11 @@
   },
   "active": "df0b5bbc01d47a4d",
   "lastOpenFiles": [
+    "CSS_Units.md",
+    "JS_Tags_and_Attributes.md",
     "README.md",
     "Positioning.md",
-    "JS_Tags_and_Attributes.md",
     "Custom_Properties.md",
-    "CSS_Units.md",
     "CSS_Function.md",
     "Advanced_Selectors.md"
   ]
