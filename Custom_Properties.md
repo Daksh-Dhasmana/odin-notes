@@ -7,4 +7,9 @@
   `:root{--variable-name:value}`. since it is declared globally.
 
 ## Usage Syntax
-- ``
+- class name: bor
+- `.bor{ background-color: var(--variable-name)}`.
+
+## Media Queries
+- is a logical expression used in CSS to apply styles based on device characteristics, suchas viewport, theme etc.
+- 
