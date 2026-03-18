@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSS_Function.md",
+                "file": "Custom_Properties.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CSS_Function"
+              "title": "Custom_Properties"
             }
           }
         ]
@@ -182,12 +182,18 @@
   },
   "active": "df0b5bbc01d47a4d",
   "lastOpenFiles": [
-    "CSS_Units.md",
-    "JS_Tags_and_Attributes.md",
-    "README.md",
-    "Positioning.md",
-    "Custom_Properties.md",
+    "Form_Validation.md",
+    "CSS_Frameworks_and_Prepro",
+    "Advanced_Selectors.md",
     "CSS_Function.md",
-    "Advanced_Selectors.md"
+    "Untitled 2.base",
+    "Untitled 1.base",
+    "Untitled.base",
+    "Custom_Properties.md",
+    "Untitled.canvas",
+    "CSS_Units.md",
+    "README.md",
+    "JS_Tags_and_Attributes.md",
+    "Positioning.md"
   ]
 }
