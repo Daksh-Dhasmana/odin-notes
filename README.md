@@ -6,3 +6,5 @@
 - [Custom_Properties](./Custom_Properties.md)
 - [JavaScript Tags and Attributes](./JS_Tags_and_Attributes.md)
 - [Form_Validation](./Form_Validation.md)
+- [CSS__Tips](./CSS__Tips.md)
+- [Flexbox](./Flexbox.md)
