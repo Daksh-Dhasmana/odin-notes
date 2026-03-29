@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSS_Function.md",
+                "file": "Grid.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CSS_Function"
+              "title": "Grid"
             }
           }
         ]
@@ -40,7 +40,7 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical",
+                "sortOrder": "alphabeticalReverse",
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
@@ -182,18 +182,20 @@
   },
   "active": "df0b5bbc01d47a4d",
   "lastOpenFiles": [
+    "Flexbox.md",
+    "Grid.md",
+    "README.md",
+    "Advanced_Selectors.md",
+    "CSS_Function.md",
     "Form_Validation.md",
     "Positioning.md",
-    "CSS_Function.md",
     "CSS_Units.md",
     "Custom_Properties.md",
     "CSS_Frameworks_and_Prepro",
-    "Advanced_Selectors.md",
     "Untitled 2.base",
     "Untitled 1.base",
     "Untitled.base",
     "Untitled.canvas",
-    "README.md",
     "JS_Tags_and_Attributes.md"
   ]
 }
