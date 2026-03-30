@@ -9,3 +9,4 @@
 - [CSS__Tips](./CSS__Tips.md)
 - [Flexbox](./Flexbox.md)
 - [Grid](./Grid.md)
+- [Advanced_Grid_Properties](./Advanced_Grid_Properties.md)
