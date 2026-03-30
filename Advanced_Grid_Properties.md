@@ -9,4 +9,6 @@
 - They are used to make Grids "dynamic".
 - The most common unit is `fr`.
 - The `fr` unit is the way of distributing whatever remaining space is left(excluding gap unlike %).
-- when using `fr`, all the grid-items fill the whole space unlike static
+- when using `fr`, all the grid-items fill the whole space unlike static.
+- They make Grids dynamic by allowing tracks to expand or shrink.
+- TIP: we can also mix units like `px` with `fr`.

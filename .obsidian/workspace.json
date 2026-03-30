@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Grid.md",
+                "file": "Advanced_Grid_Properties.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Grid"
+              "title": "Advanced_Grid_Properties"
             }
           }
         ]
@@ -182,8 +182,9 @@
   },
   "active": "df0b5bbc01d47a4d",
   "lastOpenFiles": [
-    "Flexbox.md",
     "Grid.md",
+    "Advanced_Grid_Properties.md",
+    "Flexbox.md",
     "README.md",
     "Advanced_Selectors.md",
     "CSS_Function.md",
