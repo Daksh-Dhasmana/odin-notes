@@ -1,11 +1,11 @@
 # Grid
 - They are like normal grid.
-- Similiar to [Flexbox](./Flexbox.md)
+- Similiar to [Flexbox](./Flexbox.md) but unlike Flexbox(1-D), grid is 2D.
 
 ## Grid Container
 - They contain Grid.
 - The items inside it are called grid items.
-- An element can be turned into grid using `display:grid`.
+- An element can be turned into grid using `display:grid` or `display:inline-grid`.
 - NOTE: ONLY THE DIRECT CHILDREN ARE GRID ITEMS NOT GRANDCHILDREN.
 - Grid items can also become Grids themselves.
 - Use `display:grid` when you want a Structure or a Section
@@ -13,12 +13,14 @@
 
 ## Grid Tracks
 - Is the space between two grid lines
+
 ## grid-template-columns and grid-template-rows
 - Arranges element into rows and colums
 - It can have various values like px, percentage, fractional units etc.
 - They are defined inside the grid container
 
-## Shorthand for grid
+## Shorthand for grid-template
+- Defines grid size
 - Defines how many rows and columns should be there in a grid.
 - Syntax: `grid-template: [rows]/[columns];`.
 - Eg: `grid-template: 50px 50px/50px 50px;`
@@ -92,3 +94,14 @@
 `#closet{`
 `  grid-area: close;`
 `}`
+
+## Advanced Grid Properties
+
+### repeat()
+- is a function that acts as a shorthand for defining multiple tracks of same size.
+- eg: `grid-template-column: 150px 150px 150px 150px 150px ` can be written as `grid-template-column: repeat(5,150px)`.
+
+### Fractional unit
+- They are used to make Grids "dynamic".
+- The most common unit is `fr`.
+- The `fr` unit is the way of distributing whatever remaining space is left(excluding gap unlike %).

@@ -19,3 +19,13 @@
 - Syntax: `clamp(MIN,IDEAL,MAX)`
 - It takes 3 values: Min(the minimum floor),Ideal(default value), Max(the maximum celing).
 - Uses Ideal value at first and if it scales, then it uses Max and Min to set the ceiling.
+
+# Several properties
+
+## 1. resize
+- Is a unique CSS tool that allows user to manually change the size of an element manually by dragging a handle in bottom-right corner.
+- it has four values- none, both, horizontal and vertical
+- `resize: none`: element cannot be resized(default).
+- `resize: both`: user can stretch element both horizontally and vertically.
+- `resize: horizontally`: user can stretch element horizontally.
+- `resize: vertically`: user can stretch element vertically.
