@@ -58,7 +58,8 @@
 - Shorthand:- `grid-column: [start]/[end]`, `grid-row: [start]/[end]`.
 
 ### Grid-area
-
+- Is a short hand for grid-column and grid-row.
+- Shorthand: `grid-area: [grid-row-start] [grid-column-start]/ [grid-row-end] [grid-column-end];`
 - eg:
 `.container {`
 `  display: inline-grid;`
