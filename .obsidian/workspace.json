@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Objects_Constructors.md",
+                "file": "CSS/Index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Objects_Constructors"
+              "title": "Index"
             }
           }
         ]
@@ -182,6 +182,13 @@
   },
   "active": "df0b5bbc01d47a4d",
   "lastOpenFiles": [
+    "Main_Index.md",
+    "JavaScript/Index.md",
+    "CSS/Index.md",
+    "JavaScript/JS_Basics.md",
+    "JavaScript/Factory_Functions.md",
+    "Factory_Functions.md",
+    "JavaScript/Objects_Constructors.md",
     "Index.md",
     "Grid.md",
     "Advanced_Grid_Properties.md",
