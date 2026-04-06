@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Advanced Grid Properties</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <ul>
+<li>To revisit grid, refer to <a href="./Grid.html">Grid</a></li>
+</ul>
+<h2 id="advanced-grid-properties">Advanced Grid Properties</h2>
+<h3 id="repeat">repeat()</h3>
+<ul>
+<li>is a function that acts as a shorthand for defining multiple tracks of same size.</li>
+<li>eg: <code>grid-template-column: 150px 150px 150px 150px 150px </code> can be written as <code>grid-template-column: repeat(5,150px)</code>.</li>
+</ul>
+<h3 id="fractional-unit">Fractional unit</h3>
+<ul>
+<li>They are used to make Grids &quot;dynamic&quot;.</li>
+<li>The most common unit is <code>fr</code>.</li>
+<li>The <code>fr</code> unit is the way of distributing whatever remaining space is left(excluding gap unlike %).</li>
+<li>when using <code>fr</code>, all the grid-items fill the whole space unlike static.</li>
+<li>They make Grids dynamic by allowing tracks to expand or shrink.</li>
+<li>TIP: we can also mix units like <code>px</code> with <code>fr</code>.</li>
+</ul>
+<h3 id="minimum-and-maximum-track-sizes-min-and-max">Minimum and maximum track sizes: min() and max()</h3>
+<ul>
+<li>
+<p><code>min()</code>:- selects the smallest value from list. Acts as a maximum ceiling(cap)</p>
+</li>
+<li>
+<p>Syntax Example:
+width: <code>min(50%, 200px);</code>
+How the Browser Decides:</p>
+<ul>
+<li>
+<p>The Goal: The element wants to be 50% of its parent container.</p>
+</li>
+<li>
+<p>The &quot;Check&quot;: As the container grows, that 50% value increases (e.g., 100px, 150px, 190px).</p>
+</li>
+<li>
+<p>The &quot;Cap&quot;: Once 50% becomes larger than 200px (for example, if the container is 500px wide, 50% is 250px), the browser sees min(250px, 200px).</p>
+</li>
+<li>
+<p>The Result: It picks 200px. The element &quot;stops&quot; growing even if there is more space available.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>max()</code>:- selects the largest value from list. Acts as a minimum limit(Safety net)</p>
+</li>
+<li>
+<p>Syntax Example:
+width: max(15%, 120px);
+How the Browser Decides:</p>
+<ul>
+<li>
+<p>The Goal: The element wants to be 15% of its parent container.</p>
+</li>
+<li>
+<p>The &quot;Check&quot;: As the container shrinks, that 15% value decreases (e.g., 200px, 150px, 130px).</p>
+</li>
+<li>
+<p>The &quot;Floor&quot;: Once 15% becomes smaller than 120px (for example, if the container is 400px wide, 15% is only 60px), the browser sees max(60px, 120px).</p>
+</li>
+<li>
+<p>The Result: It picks 120px. The element &quot;stops&quot; shrinking even if the container continues to get smaller.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>-<img src="file:////home/dakshdhasmana/odin-notes/CSS/image.png" alt="alt text"></p>
+<ul>
+<li><img src="file:////home/dakshdhasmana/odin-notes/CSS/image-1.png" alt="alt text"></li>
+<li>Here, the blue background is the total parent size, but the row(grid-items) is not expanding beyond the 200px limit despite the parent streching</li>
+<li>and the same can be said for max().</li>
+</ul>
+<h3 id="dynamic-minimum-and-maximum-sizes">Dynamic minimum and maximum sizes</h3>
+<h4 id="minmax">minmax()</h4>
+<ul>
+<li>It can be only be used in Grids.</li>
+<li>It can only be used with following CSS properties
+<ul>
+<li><code>grid-template-columns</code></li>
+<li><code>grid-template-rows</code></li>
+<li><code>grid-auto-columns</code></li>
+<li><code>grid-auto-rows</code></li>
+</ul>
+</li>
+<li>It takes only 2 arguments:- the max size grid track can be and the max size grid track can be.</li>
+<li>With our grid-template-columns set with minmax() values, each grid item’s width will grow and shrink with the grid container as it resizes horizontally.</li>
+<li>However, as the grid shrinks, the column tracks will stop shrinking at 150px, and as the grid grows, they will stop growing at 200px.</li>
+<li>i.e; for example <code>grid-template-rows: repeat(2, minmax(50px, 200px));</code>, in this it will stop &quot;adjusting&quot; beyond 50px and beyond max size 200px.</li>
+</ul>
+<h4 id="auto-fit">Auto-fit</h4>
+<ul>
+<li>It's a part of <code>repeat()</code>.</li>
+<li>You should always use this with <code>minmax()</code>.</li>
+<li>It tells the browser to create as many columns to fill the container, without me having to define it.</li>
+<li><code>grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));</code></li>
+<li>How the browser interprets this:
+<ul>
+<li>
+<p>&quot;Look at the width:&quot; &quot;How much space do I have in this .grid-container?&quot;</p>
+</li>
+<li>
+<p>&quot;Do the math:&quot; &quot;How many 200px blocks can I fit in one row?&quot;</p>
+</li>
+<li>
+<p>&quot;Create the grid:&quot; If the container is 1000px wide, it creates 5 columns. If you shrink the window to 500px, it automatically drops to 2 columns. Because 200px*2=400px&lt;500px.</p>
+</li>
+<li>
+<p>&quot;Stretch to fill:&quot; Because of the 1fr, it stretches those columns to fill any tiny gaps left over.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="auto-fill">Auto-fill</h4>
+<ul>
+<li>
+<p>It's a part of <code>repeat()</code>.</p>
+</li>
+<li>
+<p>You should always use this with <code>minmax()</code>.</p>
+</li>
+<li>
+<p>It tells the browser to fill as much space as necessary and then fill the remaining space with ghost grid items.</p>
+</li>
+<li>
+<p><code>grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));</code></p>
+</li>
+<li>
+<p>How the browser interprets this:</p>
+<ul>
+<li>
+<p>&quot;Look at the width:&quot; &quot;How much space do I have in this .grid-container?&quot;</p>
+</li>
+<li>
+<p>&quot;Do the math:&quot; &quot;How many 200px blocks can I fit in one row?&quot;</p>
+</li>
+<li>
+<p>&quot;Create the grid (The Ghost Slots):&quot; If the container is 1000px wide, it insists on creating 5 columns, even if you only have 2 items. It treats the empty space as &quot;Ghost Columns.&quot;</p>
+</li>
+<li>
+<p>&quot;Preserve the slots:&quot; Unlike auto-fit, it will not collapse the empty columns.</p>
+</li>
+<li>
+<p>&quot;Distribute the stretch:&quot; Because of the 1fr, the browser divides the 1000px by all 5 slots.</p>
+</li>
+<li>
+<p>The Result: Each of your 2 items stays exactly 200px wide. You see your 2 items on the left, followed by 600px of empty, structured grid space on the right.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="difference-between-auto-fill-and-auto-fit">Difference between Auto-fill and Auto-fit</h4>
+<ul>
+<li>
+<p>let's say the width of grid container is 500px and grid items width is 100px each and there are only 3 grid-items.</p>
+</li>
+<li>
+<p>then <code>auto-fit</code> will stretch both grid-items to fill the remaining space. so for eg. auto-fit will let grid-items occupy the whole 500px space instead of just 300px for 100px each. like this</p>
+</li>
+<li>
+<p><img src="file:////home/dakshdhasmana/odin-notes/CSS/image-2.png" alt="alt text"></p>
+</li>
+<li>
+<p>but <code>auto-fill</code> will not stretch grid-items, for eg, auto-fill will let grid-items occupy only 300px for 100px each, so the remaining 200px will be filled by empy grid-items. like this</p>
+</li>
+<li>
+<p><img src="file:////home/dakshdhasmana/odin-notes/CSS/image-3.png" alt="alt text"></p>
+</li>
+<li>
+<p>But here's the catch, for a fixed units like <code>px</code> it will work like above, but for flexible units like <code>fr</code>, here how auto-fit and auto-fill work.</p>
+</li>
+<li>
+<p>auto-fit (The &quot;Accordion&quot;)</p>
+<ul>
+<li>
+<p>Calculate: &quot;I can fit five 100px slots.&quot;</p>
+</li>
+<li>
+<p>Check Content: &quot;I only have 3 items.&quot;</p>
+</li>
+<li>
+<p>Collapse: It deletes the 2 empty slots (5−2=3 columns).</p>
+</li>
+<li>
+<p>Stretch: It divides the whole 500px by those 3 columns.</p>
+</li>
+<li>
+<p>Final Result: Each of your 3 items becomes 166.6px wide to fill the whole 500px.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>auto-fill (The &quot;Parking Lot&quot;)</p>
+<ul>
+<li>
+<p>Calculate: &quot;I can fit five 100px slots.&quot;</p>
+</li>
+<li>
+<p>Check Content: &quot;I only have 3 items.&quot;</p>
+</li>
+<li>
+<p>Preserve: It keeps all 5 slots (3 full+2 empty).</p>
+</li>
+<li>
+<p>Stretch: It divides the 500px by all 5 slots.</p>
+</li>
+<li>
+<p>Final Result: Each item stays 100px wide. You see your 3 items, followed by 200px of &quot;ghost&quot; slots.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+            
+        </body>
+        </html>
