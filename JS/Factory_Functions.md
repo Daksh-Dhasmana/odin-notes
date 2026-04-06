@@ -38,4 +38,15 @@
 
 # Private variables and function.
 - eg:
-- 
+`- function objs(name){`
+`    let res=0;`
+`    const reso=()=>{return res};`
+`    const reso1=()=>{res++; return res;}`
+`    return {name, reso, reso1};`
+`}`
+`const oj=objs('daksh');`
+`console.log(oj.name);`
+`console.log(oj.reso());`
+`console.log(oj.reso1());`
+- in this we cannot return a private variable(here res) to object/s, to return it to object we have to return it through a function defined in factory function.
+- This ensures encapsulation through factory function/closures.
