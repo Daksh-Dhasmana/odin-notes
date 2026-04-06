@@ -26,4 +26,4 @@
 - A Closure occurs when an Outer (Mother) function defines a private variable and returns an Inner (Child) function/s. This pattern creates a Private Scope where the variable is inaccessible to the rest of the program, effectively granting the 'Child' function/s exclusive, persistent access to that data even after the 'Mother' function has finished executing.
   
 # Factory Function
-- 
+- They use the power of closures
