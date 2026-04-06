@@ -1,4 +1,4 @@
 # MAIN INDEX
 
-- [CSS_Notes](./CSS/CSSIndex.md)
-- [JS_Notes](./JS/JsIndex.md)
+- [CSS_Notes](./CSS/CSSIndex)
+- [JS_Notes](./JS/JsIndex)
