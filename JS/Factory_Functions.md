@@ -50,3 +50,85 @@
 `console.log(oj.reso1());`
 - in this we cannot return a private variable(here res) to object/s, to return it to object we have to return it through a function defined in factory function.
 - This ensures encapsulation through factory function/closures.
+
+# Prototypal inheritance with factories
+-
+`/**`
+` * FACTORY FUNCTION: createUser (The "Base" Factory)`
+` * Purpose: Creates a basic user with private reputation data.`
+` */`
+`function createUser(name) {`
+`  const discordName = "@" + name;`
+` `
+`  // PRIVATE VARIABLE: Locked in this closure. `
+`  // Global scope cannot see or change this directly.`
+`  let reputation = 0;`
+` `
+`  // INTERFACE (Getters/Setters): The only way to interact with 'reputation'`
+`  const getReputation = () => reputation;`
+`  const giveReputation = () => { reputation++; };`
+` `
+`  return { name, discordName, getReputation, giveReputation };`
+`}`
+` `
+`/**`
+` * SUPER FACTORY: createPlayer (The "Derived" Factory)`
+` * Pattern: Composition via Object.assign`
+` */`
+`function createPlayer(name, level) {`
+`  // DATA FLOW: Passing 'name' down to the base factory to build the foundation.`
+`  const user = createUser(name);`
+` `
+`  // PRIVATE VARIABLE: 'level' is scoped only to this function.`
+`  const increaseLevel = () => { level++; };`
+` `
+`  // COMPOSITION: Merges a blank object {}, the 'user' object, and new functions.`
+`  // NOTE: { increaseLevel } is shorthand for { increaseLevel: increaseLevel }`
+`  return Object.assign({}, user, { increaseLevel });`
+`}`
+` `
+`// --- EXECUTION ---`
+` `
+`let nameInput = prompt("Enter your name: ");`
+`const obj1 = createUser(nameInput);`
+` `
+`let ch = prompt("Create a player? press y or n: ");`
+` `
+`if (ch === 'y') {`
+`    // We pass 'nameInput' to ensure the Player has the correct name foundation.`
+`    const P1 = createPlayer(nameInput, 0);`
+` `
+`    // DEBUGGING NOTES:`
+`    console.log(P1.name);          // Output: "Daksh" (Inherited from user)`
+`    console.log(P1.level);         // Output: undefined `
+`    /* WHY UNDEFINED? `
+`       'level' was never added to the return object in Object.assign. `
+`       It exists in memory (Closure), but we lack a 'getLevel' function to see it.`
+`    */`
+` `
+`    P1.increaseLevel();            // Increments internal 'level' to 1`
+`} `
+`else {`
+`    console.log("Player creation skipped.");`
+`}`
+
+## Object.assign();
+- it copies all properties from source onto the target
+- Syntax: Object.assign(target,source1,source2....).
+  
+# The Module Pattern(Using IIFEs)
+- NOTE: IIFE IS NOT A CONSTRUCTOR SO DON'T USE IT WITH OBJECTS, IIFE IS A FUNCTION!!!.
+- IIFEs or Immediately Invoked Function Expression
+- It is a JS function that runs as soon as it is defined.
+- Used to create a private scope so they don't pollute the global scope.
+- so IIFE are essentialty used to create a library/collection of private variables/function, and only way to access/get them is for the particular IIFE to return that particular variable/function.
+- Syntax: `const func=(function () {// Logic goes here})();`
+- eg:
+  `const mods= (function(){`
+`    let priv=0;`
+`    const addpriv=()=>{priv++;};`
+`    const getpriv=()=>priv;`
+`    addpriv();`
+`    return {getpriv};`
+`})();`
+`console.log(mods.getpriv());`
