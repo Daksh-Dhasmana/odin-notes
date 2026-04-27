@@ -1,4 +1,7 @@
 # JS Notes
 - [Factory_Functions](./Factory_Functions.md)
 - [JS_Basics](./JS_Basics.md)
+- [JS_Tags_and_Attributes](./JS_Tags_and_Attributes.md)
+- [Positioning](./Positioning.md)
+- [Classes](./Classes.md)
 - [Object_Constructors](./Objects_Constructors.md)
