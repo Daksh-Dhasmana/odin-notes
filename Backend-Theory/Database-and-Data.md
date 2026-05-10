@@ -23,3 +23,4 @@
 - ![Bubble Chart](image-1.png)
 
 ## Line chart
+- A line chart presents information as a series of data points called “markers” connected by straight line segments. Line charts are extremely popular and are widely used in most data analytics fields.

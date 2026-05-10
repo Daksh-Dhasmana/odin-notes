@@ -1,1 +1,1 @@
-[Database-Intro] (./Database-and-Data.md)
+[Database-Intro](./Database-and-Data.md)
