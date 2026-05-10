@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "index.md",
+                "file": "CSS/Form_Validation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "Form_Validation"
             }
           }
         ]
@@ -185,9 +185,13 @@
   },
   "active": "d0499c89b1ff41c6",
   "lastOpenFiles": [
+    "JS/Factory_Functions.md",
+    "JS/JS_Tags_and_Attributes.md",
+    "JS/Positioning.md",
+    "JS/JsIndex.md",
+    "index.md",
     "CSS/Flexbox.md",
     "CSS/CSSIndex.md",
-    "index.md",
     "CSS/Form_Validation.md",
     "CSS/Advanced_Grid_Properties.md",
     "CSS/Grid.md",
@@ -197,11 +201,7 @@
     "CSS/CSS_Units.md",
     "CSS/Custom_Properties.md",
     "CSS/image.png",
-    "JS/Positioning.md",
     "JS/Objects_Constructors.md",
-    "JS/JsIndex.md",
-    "JS/JS_Tags_and_Attributes.md",
-    "JS/JS_Basics.md",
-    "JS/Factory_Functions.md"
+    "JS/JS_Basics.md"
   ]
 }
