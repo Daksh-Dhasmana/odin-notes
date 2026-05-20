@@ -5,3 +5,4 @@
 - [Positioning](./Positioning.md)
 - [Classes](./Classes.md)
 - [Object_Constructors](./Objects_Constructors.md)
+- [ES6_Module](./ES6_Module.md)
