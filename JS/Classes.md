@@ -8,7 +8,7 @@
 `    get fullName() {`
 `        return this.n1;`
 `    },`
-`    set fullName(val) {`
+`    set fullName(val) {` `//here val is 20`
 `        this.n2 = val + 2;`
 `    }`
 `};`
