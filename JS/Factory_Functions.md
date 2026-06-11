@@ -48,7 +48,7 @@
 `console.log(oj.name);`
 `console.log(oj.reso());`
 `console.log(oj.reso1());`
-- in this we cannot return a private variable(here res) to object/s, to return it to object we have to return it through a function defined in factory function.
+- in this we cannot return a private variable(here res) to object/s, to return it to object, we have to return it through a function defined in factory function.
 - This ensures encapsulation through factory function/closures.
 
 # Prototypal inheritance with factories
@@ -132,3 +132,8 @@
 `    return {getpriv};`
 `})();`
 `console.log(mods.getpriv());`
+
+
+- The Module Pattern actually uses an IIFE to work.
+- IIFE is a tool (a specific way to write a function so it runs instantly).
+- Module Pattern is a design blueprint (a way to structure your code to hide secrets, using an IIFE as the engine).

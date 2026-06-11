@@ -14,3 +14,7 @@
 - An entry point is the primary JavaScript file where a program or application starts execution and kicks off the entire module dependency chain.
 - if `two.js`<---`one.js`<--`three.js`, then two is the entry point
 - syntax `<script src="two.js" type="module"></script>`
+
+# Dependency Graph
+- A dependency graph is a visual or conceptual map that JavaScript engines build to track how different code files (modules) connect to, import, and depend on each other.
+- When you use import and export statements in your code, you are manually drawing lines between files. The JavaScript engine reads those lines and builds the dependency graph.
