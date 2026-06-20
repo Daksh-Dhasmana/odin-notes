@@ -1,5 +1,6 @@
 # Bundling
 - In bundling, we provide the bundler with an entry point and then it builds an dependency graph from that file, combines necessary files and then gives an file as output which includes all necessary codes.
+- A Dependency Graph is a visual map that shows how all files are connected, and we can see these dependency graph, we have to use a developer tool or a plugin.
 - It could do other things too, like Tree-Shaking(Removal of dead codes).
   
 # WebPack
@@ -35,7 +36,7 @@
 `};`
 
 - entry: A file path from the config file to whichever file is our entry point, which in this case is src/index.js.
-- output: A object containing information about output bundle.
+- output: An object containing information about output bundle.
    - filename: name of output file, we can change it
    - path: the path to output directory, in this case dist.
    - clean: If we include this option and set it to true, then each time we run Webpack to bundle, it will empty the output directory first before bundling the files into it. This helps us keep dist clean, so it only contains the files produced by the most recent bundling.
