@@ -4,9 +4,11 @@
 - It could do other things too, like Tree-Shaking(Removal of dead codes).
   
 # WebPack
+- In a webpack project, JS is boss of everything.
 - It is a bundler for modern day JS application.
 - You feed it a messy closet of hundreds of disorganized files (JavaScript, CSS, images, HTML), and it processes them all to output just a few highly optimized, neatly packed files that a web browser can understand instantly.
 - Webpack merges hundreds of scattered code files into a single, optimized file so the browser doesn't have to waste time loading them one by one.
+- To run webpack we use the command `npx webpack`.
 
 # Src and Dist
 - When dealing with Webpack or other bundlers, we have two important directories: src(source) and dist(distribution).
@@ -22,6 +24,7 @@
 - Then webpack creates a dist directory with main.js file an when we run this file, we can the outputs
 
 # Webpack code structure
+- We can reuse this code for other projects too!!!
 `// webpack.config.js`
 `import path from "node:path";`
 ``
@@ -40,3 +43,23 @@
    - filename: name of output file, we can change it
    - path: the path to output directory, in this case dist.
    - clean: If we include this option and set it to true, then each time we run Webpack to bundle, it will empty the output directory first before bundling the files into it. This helps us keep dist clean, so it only contains the files produced by the most recent bundling.
+  
+# Handling HTML
+- We use the command `HtmlWebpackPlugin`.
+- We run the following command `npm install --save-dev html-webpack-plugin`.
+- Instead of maintaining an HTML file in dist folder, we create a source template(like ./src/template.html).
+- When we run Webpack, the plugin takes over and does these 3 things:
+   - Generates a fresh HTML file inside dist folder.
+   - Copies over everything from source template(div tags, layout etc.).
+   - Automatically injects the `<script>` tag for your bundle before `</body>` tag.
+- `plugins: [`
+    `new HtmlWebpackPlugin({`
+      `template: "./src/template.html",`
+    `}),`
+- Make the file `template.html` inside src folder.
+- After running the command `npx webpack`, there are now two files in dist: main.js and index.html.
+- This piece of code is also reusable and installs HtmlWebpackPlugin.
+
+# Loading CSS
+- Run the following command : `npm install --save-dev style-loader css-loader`.
+- 
