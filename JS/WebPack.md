@@ -62,4 +62,71 @@
 
 # Loading CSS
 - Run the following command : `npm install --save-dev style-loader css-loader`.
-- 
+- In above command 
+   - css-loader will read any CSS files we import in the JS file and store result in a string.
+   - style-loader then takes that string and adds the JS code that will apply styles to that page
+ - then we write:
+    `module: {`
+    `rules: [`
+      `{`
+        `test: /\.css$/i,`
+        `use: ["style-loader", "css-loader"],`
+      `},`
+    `],`
+  `},`
+- All the above code does it's that, it tells Webpack that if it encounters a file ending with .css , it should use the listed loaders to process that CSS file/s.
+  
+# Loading Images
+- For this, we can simply include them in CSS files using url().
+- like this
+`.hero-section {`
+  `background-image: url('./assets/banner.jpg'); /* Relative path to your image */`
+`}`
+- css-loader already handles this for us, so we dont have to do anything extra for image paths in CSS.
+
+# WebPack Dev Server
+- It's like the VS Code's Live Preview Extension, where it automatically refreshes whenever you saved changes.
+- `webpack-dev-sever` is very similiar, meaning we dont have to run `npx webpack`, everytime we make changes.
+- It works by bundling your code, every time you save a file that is used in bundle.
+- We also use "source map", so that any/every error references files/lines and not the jumbled mess inside the single bundled .js file.
+- we have to run the following command: `npx webpack serve`
+- NOTE: Note that the webpack-dev-server only reads your webpack configuration when you start it. If you change the webpack config file while the dev server is running, it will not reflect those config changes. Use Ctrl + C in the terminal to kill it then rerun npx webpack serve to apply the new config.
+  
+`// webpack.config.js`
+`import path from "node:path";`
+`import HtmlWebpackPlugin from "html-webpack-plugin";`
+
+`export default {`
+  `mode: "development",`
+  `entry: "./src/index.js",`
+  `output: {`
+    `filename: "main.js",`
+    `path: path.resolve(import.meta.dirname, "dist"),`
+    `clean: true,`
+  `},`
+  `devtool: "eval-source-map",`
+  `devServer: {`
+    `watchFiles: ["./src/template.html"],`
+  `},`
+  `plugins: [`
+    `new HtmlWebpackPlugin({`
+      `template: "./src/template.html",`
+    `}),`
+  `],`
+  `module: {`
+    `rules: [`
+      `{`
+        `test: /\.css$/i`,
+        `use: ["style-loader", "css-loader"],`
+      `},`
+      `{`
+        `test: /\.html$/i,`
+        `use: ["html-loader"],`
+      `},`
+      `{`
+        `test: /\.(png|svg|jpg|jpeg|gif)$/i,`
+        `type: "asset/resource",`
+     ` },`
+    `],`
+  `},`
+`};`
