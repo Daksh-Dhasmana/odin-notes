@@ -1,6 +1,6 @@
 # Bundling
 - In bundling, we provide the bundler with an entry point and then it builds an dependency graph from that file, combines necessary files and then gives an file as output which includes all necessary codes.
-- A Dependency Graph is a visual map that shows how all files are connected, and we can see these dependency graph, we have to use a developer tool or a plugin.
+- A Dependency Graph is a visual map that shows how all files are connected, and to see these dependency graph, we have to use a developer tool or a plugin.
 - It could do other things too, like Tree-Shaking(Removal of dead codes).
   
 # WebPack
