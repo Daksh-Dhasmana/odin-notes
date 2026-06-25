@@ -9,6 +9,9 @@
 - You feed it a messy closet of hundreds of disorganized files (JavaScript, CSS, images, HTML), and it processes them all to output just a few highly optimized, neatly packed files that a web browser can understand instantly.
 - Webpack merges hundreds of scattered code files into a single, optimized file so the browser doesn't have to waste time loading them one by one.
 - To run webpack we use the command `npx webpack`.
+- Before installing webpack create a package.json file with command: `npm init -y --init-type=module`, this creates a package.json file that is pre-configured to use modern JS syntax.
+
+- After the above step, install the Webpack using `npm install --save-dev webpack webpack-cli` command.
 
 # Src and Dist
 - When dealing with Webpack or other bundlers, we have two important directories: src(source) and dist(distribution).
@@ -43,7 +46,7 @@
    - filename: name of output file, we can change it
    - path: the path to output directory, in this case dist.
    - clean: If we include this option and set it to true, then each time we run Webpack to bundle, it will empty the output directory first before bundling the files into it. This helps us keep dist clean, so it only contains the files produced by the most recent bundling.
-  
+
 # Handling HTML
 - We use the command `HtmlWebpackPlugin`.
 - We run the following command `npm install --save-dev html-webpack-plugin`.
@@ -64,7 +67,7 @@
 - Run the following command : `npm install --save-dev style-loader css-loader`.
 - In above command 
    - css-loader will read any CSS files we import in the JS file and store result in a string.
-   - style-loader then takes that string and adds the JS code that will apply styles to that page
+   - style-loader then takes that string(from css-loader) and adds the JS code that will apply styles to that page.
  - then we write:
     `module: {`
     `rules: [`
@@ -77,12 +80,15 @@
 - All the above code does it's that, it tells Webpack that if it encounters a file ending with .css , it should use the listed loaders to process that CSS file/s.
   
 # Loading Images
-- For this, we can simply include them in CSS files using url().
-- like this
-`.hero-section {`
-  `background-image: url('./assets/banner.jpg'); /* Relative path to your image */`
+
+## Using HTML
+- - // webpack.config.js
+`{`
+  test: /\.html$/i,
+  `use: ["html-loader"],`
 `}`
-- css-loader already handles this for us, so we dont have to do anything extra for image paths in CSS.
+- Write the following code inside webpack.config.js, and install `npm --save-dev html-loader`.
+- 
 
 # WebPack Dev Server
 - It's like the VS Code's Live Preview Extension, where it automatically refreshes whenever you saved changes.
@@ -130,3 +136,12 @@
     `],`
   `},`
 `};`
+
+# Important commands install first
+- `npx webpack`
+- `npm init -y --init-type=module`
+- `npm install --save-dev webpack webpack-cli`
+- `npm install --save-dev html-webpack-plugin`
+- `npm install --save-dev html-loader`
+- `npm install --save-dev style-loader css-loader`
+- `npx webpack serve`
