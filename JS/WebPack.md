@@ -88,7 +88,6 @@
   `use: ["html-loader"],`
 `}`
 - Write the following code inside webpack.config.js, and install `npm --save-dev html-loader`.
-- 
 
 # WebPack Dev Server
 - It's like the VS Code's Live Preview Extension, where it automatically refreshes whenever you saved changes.
