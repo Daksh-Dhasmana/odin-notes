@@ -80,9 +80,13 @@
 - All the above code does it's that, it tells Webpack that if it encounters a file ending with .css , it should use the listed loaders to process that CSS file/s.
   
 # Loading Images
-
+- For this, we can simply include them in CSS files using url().
+- like this
+`.hero-section {`
+  `background-image: url('./assets/banner.jpg'); /* Relative path to your image */`
+`}`
 ## Using HTML
-- - // webpack.config.js
+- // webpack.config.js
 `{`
   test: /\.html$/i,
   `use: ["html-loader"],`
@@ -118,6 +122,11 @@
       `template: "./src/template.html",`
     `}),`
   `],`
+  `"scripts": {`
+    `"build": "webpack",`
+    `"dev": "webpack serve",`
+    `"deploy": "git subtree push --prefix dist origin gh-pages"`
+  `},`
   `module: {`
     `rules: [`
       `{`
@@ -144,3 +153,35 @@
 - `npm install --save-dev html-loader`
 - `npm install --save-dev style-loader css-loader`
 - `npx webpack serve`
+
+# Important Github Commands for Webpack
+- `git subtree push --prefix dist origin gh-pages`
+- It solves a specific problem: how to deploy a website when your finished code is buried inside a subfolder (dist), but GitHub Pages expects it to be at the very top level.
+- Like the `.html` file, which github expects to be at very top, but it's buried inside the dist folder.
+- `git subtree push`: This tells Git, "Hey, I don't want to push this entire project. I only want to push a specific sub-folder (a 'subtree') as if it were its own standalone project."
+- `--prefix dist`: This specifies exactly which folder to isolate. You are telling Git that the dist folder is the root folder for this push.
+- `origin`: This is the shorthand name for your remote repository hosted on GitHub.
+- `gh-pages`: This is the destination branch on GitHub where you want to send these files. 
+- Suppose this is your Project Repo
+- my-project/ (Your Main Repository)
+├── src/
+├── node_modules/
+├── package.json
+└── dist/                  <-- Only this folder contains your website
+    ├── index.html
+    └── bundle.js
+- When we run github subtree push, it essentially ignores everything except dist, then it takes that dist and make a seperate "gh-pages" branch, it in which dist folder is on top, Like this.
+- gh-pages branch (On GitHub)
+├── index.html             <-- Now sitting perfectly at the top level!
+└── bundle.js
+
+- `"scripts": {`
+  `"build": "webpack",`
+  `"dev": "webpack serve",`
+  `"deploy": "git checkout gh-pages && git merge main --no-edit && npm run build && git add dist -f && git commit -m 'Deployment commit' && git subtree`
+   `push --prefix dist origin gh-pages && git checkout main"`
+`}`
+- This above, this thing is like one-for-all, everything related to webpack and shi..
+- just use the command `npm run deploy` and boom, you good...
+- But ofc you have to write these too.
+- `git add . && git commit -m "Finished my new feature"`.
