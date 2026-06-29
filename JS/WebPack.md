@@ -86,9 +86,9 @@
   `background-image: url('./assets/banner.jpg'); /* Relative path to your image */`
 `}`
 ## Using HTML
-- // webpack.config.js
+- `// webpack.config.js`
 `{`
-  test: /\.html$/i,
+  `test: /\.html$/i,`
   `use: ["html-loader"],`
 `}`
 - Write the following code inside webpack.config.js, and install `npm --save-dev html-loader`.
