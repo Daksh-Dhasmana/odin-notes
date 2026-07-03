@@ -88,7 +88,7 @@
 ## Using HTML
 - `// webpack.config.js`
 `{`
-  `test: /\.html$/i,`
+  test: /\.html$/i,
   `use: ["html-loader"],`
 `}`
 - Write the following code inside webpack.config.js, and install `npm --save-dev html-loader`.
@@ -182,6 +182,9 @@
    `push --prefix dist origin gh-pages && git checkout main"`
 `}`
 - This above, this thing is like one-for-all, everything related to webpack and shi..
-- just use the command `npm run deploy` and boom, you good...
 - But ofc you have to write these too.
 - `git add . && git commit -m "Finished my new feature"`.
+- `git checkout -b gh-pages`
+- `git push origin gh-pages`
+- `git checkout main`
+- `npm run deploy`

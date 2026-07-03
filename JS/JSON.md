@@ -21,4 +21,7 @@
     `}`
  `}`
 
-# 
+# Converting between objects and texts
+- There are two methods for this:
+   - `parse()`: Accepts JSON as a parameter and returns corresponding JS object.
+   - `stringify()`: Accepts object as a parameter and returns equivalent JSON string.

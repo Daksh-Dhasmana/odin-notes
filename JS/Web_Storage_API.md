@@ -1,0 +1,11 @@
+# Definition
+-  The Web Storage API provides mechanisms by which browsers can securely store key/value pairs.
+-  They stay intact throughout page loads
+-  The keys and values are always strings(if key/value is an integer, then that integer is also converted to string).
+-  You can access these values like an object, or with the Storage.getItem() and Storage.setItem() methods. 
+-  There several other methods like:
+    - `setItem(key, value)` : Saves a data item to the storage by assigning a specific value to a unique key name.
+    - `getItem(key)` : Retrieves the stored string value associated with the specified key name, or returns `null` if it doesn't exist.
+    - `removeItem(key)` : Deletes the specific data item associated with the specified key name from the storage.
+    - `key(index)` : Retrieves the name of a key at a specific numerical position (index) in the storage list.
+    - `length` : A property that returns the total number of data items currently stored in that storage object.
