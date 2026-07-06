@@ -10,7 +10,6 @@
 - Webpack merges hundreds of scattered code files into a single, optimized file so the browser doesn't have to waste time loading them one by one.
 - To run webpack we use the command `npx webpack`.
 - Before installing webpack create a package.json file with command: `npm init -y --init-type=module`, this creates a package.json file that is pre-configured to use modern JS syntax.
-
 - After the above step, install the Webpack using `npm install --save-dev webpack webpack-cli` command.
 
 # Src and Dist
@@ -188,3 +187,17 @@
 - `git push origin gh-pages`
 - `git checkout main`
 - `npm run deploy`
+
+
+## Advantages
+
+* **Optimized Performance:** Uses features like **tree shaking** (removing unused code) and **code splitting** (loading code only when needed) to make websites load faster.
+* **Handles Any File Type:** Through loaders, you can import CSS, images, and fonts directly into your JavaScript files, keeping related code organized together.
+* **Great Developer Experience:** Its development server features **Hot Module Replacement (HMR)**, which updates your code in the browser instantly without refreshing the page.
+* **Highly Customizable:** Offers a massive ecosystem of plugins that allow you to automate almost any build task, from minifying code to managing environment variables.
+
+## Disadvantages
+
+* **Steep Learning Curve:** Configuring `webpack.config.js` from scratch is notoriously complex and overwhelming for beginners (often called "configuration hell").
+* **Slower Build Times:** Because it is built on older Node.js architecture, processing very large codebases can feel sluggish compared to newer tools.
+* **Overkill for Small Projects:** Setting up a complex bundler adds unnecessary boilerplate and frustration if you are just building a simple, few-page website.

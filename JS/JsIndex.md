@@ -9,3 +9,5 @@
 - [NPM_Notes](./npm.md)
 - [WebPack](./WebPack.md)
 - [JSON](./JSON.md)
+- [Web_Storage_API](./Web_Storage_API.md)
+- [Asynchronous_JS_and_API](./Asynchronous_JS_and_API/index.md)

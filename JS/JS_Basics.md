@@ -43,3 +43,7 @@ Instead of looking at who called it, it looks outside of itself, grabs the this 
 `newImage.setAttribute('src', 'https://example.com/photo.jpg');`
 `newImage.setAttribute('alt', 'Descriptive text');`
 `newImage.setAttribute('data-id', 'user-123'); // Custom data attribute`
+
+## setTimout
+- sets a timer which executes a function or specified piece of code once the timer expires.
+- where 1000= 1 second
