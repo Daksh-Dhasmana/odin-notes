@@ -28,7 +28,7 @@
 
 ### Promises
 - Promises can help in avoiding the callback hell by providing the structured way to handle the asynchronous operations using the .then() method.
-- Instead of nesting functions inside each other like Russian dolls, a Promise allows you to attach .then() to the end of a function. It literally reads like a timeline: "Do this, then do that, then do that."
+- Instead of nesting functions inside each other like Russian dolls, a Promise allows you to attach .then() to the end of a function. It literally reads like a timeline: "Do step 1, .then() do step 2, .then() do step 3." If anything fails anywhere along the line, it immediately skips to a single .catch() block at the bottom."
 - a Promise is an object representing the eventual completion (or failure) of an asynchronous operation.
 
 #### 3 Stages pf promise
