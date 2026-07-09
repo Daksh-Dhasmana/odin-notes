@@ -180,12 +180,9 @@
   `"deploy": "git checkout gh-pages && git merge main --no-edit && npm run build && git add dist -f && git commit -m 'Deployment commit' && git subtree`
    `push --prefix dist origin gh-pages && git checkout main"`
 `}`
-- This above, this thing is like one-for-all, everything related to webpack and shi..
+- This above, this thing is like one-for-all, everything related to webpack and shi.. and put it inside package.json() and delete the script inside webpack.config.js
 - But ofc you have to write these too.
-- `git add . && git commit -m "Finished my new feature"`.
-- `git checkout -b gh-pages`
-- `git push origin gh-pages`
-- `git checkout main`
+- `git branch gh-pages` this creates a seperate branch, gh-pages
 - `npm run deploy`
 
 
@@ -201,3 +198,6 @@
 * **Steep Learning Curve:** Configuring `webpack.config.js` from scratch is notoriously complex and overwhelming for beginners (often called "configuration hell").
 * **Slower Build Times:** Because it is built on older Node.js architecture, processing very large codebases can feel sluggish compared to newer tools.
 * **Overkill for Small Projects:** Setting up a complex bundler adds unnecessary boilerplate and frustration if you are just building a simple, few-page website.
+
+
+- NOTE: After adding gitignore, add these two folders as well: node_modules`node_modules/` and dist`dist/` 
