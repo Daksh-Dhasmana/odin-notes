@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSS/CSS_Confusion.md",
+                "file": "CSS/Advanced_Grid_Properties.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CSS_Confusion"
+              "title": "Advanced_Grid_Properties"
             }
           }
         ]
@@ -185,6 +185,9 @@
   },
   "active": "d0499c89b1ff41c6",
   "lastOpenFiles": [
+    "CSS/CSS_Function.md",
+    "CSS/Advanced_Grid_Properties.md",
+    "CSS/CSS_Confusion.md",
     "JS/npm.md",
     "CSS/Position.md",
     "JS/JsIndex.md",
@@ -195,11 +198,9 @@
     "index.md",
     "CSS/Flexbox.md",
     "CSS/CSSIndex.md",
-    "CSS/Advanced_Grid_Properties.md",
     "CSS/Grid.md",
     "CSS/Advanced_Selectors.md",
     "CSS/CSS__Tips.md",
-    "CSS/CSS_Function.md",
     "CSS/CSS_Units.md",
     "CSS/Custom_Properties.md",
     "CSS/image.png",
