@@ -12,3 +12,4 @@
 - [Web_Storage_API](./Web_Storage_API.md)
 - [Asynchronous_JS_and_API](./Asynchronous_JS_and_API/index.md)
 - [Testing_JavaScript](./Testing_Javascript/index.md)
+- [Additional_Git_Command](./Additional_Git_Commands.md)
