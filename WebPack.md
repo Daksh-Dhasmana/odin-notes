@@ -196,3 +196,6 @@
 
 
 - NOTE: After adding gitignore, add these two folders as well: node_modules`node_modules/` and dist`dist/` 
+
+## Using Tailwind CSS
+- 
