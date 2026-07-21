@@ -32,34 +32,33 @@ button {
 ### 3) transition-timing-function
 - his lets us change the speed of the transition over the course of its duration. 
 - Here it will ease-out, meaning the color change will be faster at the start than at the end of the transition.
+  - #### 1) ease (The Default): 
+      - Starts a little slow, accelerates quickly in the middle, and then grinds to a gentle halt at the end. 
+      - It feels very natural because most physical objects don't start or stop instantly.
 
-### 4) transition-delay
+  - #### 2) linear (Constant Speed): 
+      - No acceleration, no deceleration. 
+      - It moves at the exact same speed from the very first pixel to the last. 
+      - This can feel stiff, but it's perfect for things like continuous spinning animations or color fades.
+
+  - #### 3) ease-in (Slow Start): 
+    - Starts completely slow and steadily builds up speed until it hits a sudden, fast finish. 
+    - Think of a car stepping on the gas pedal.
+  
+  - #### 4) ease-out (Slow End): 
+    - Starts at peak velocity instantly and then smoothly decelerates to a gentle stop. 
+    - This is great for UI elements like dropdown menus or slide-in alerts—they pop onto the screen quickly to grab attention, then settle down smoothly.
+  
+  - #### 5) ease-in-out (Slow Start & Slow End): 
+    - A perfect symmetry. 
+    - It starts slow, accelerates through the middle, and slows back down at the very end.
+- ### 4) transition-delay
 -  This determines the delay at which the transition will start. 
 -  In this case, the color change starts a quarter of a second after the cursor rests on the button.
   
 - After this you introduce the end state-the hover state- 
 
-## Standard timing functions
-### 1) ease (The Default): 
-- Starts a little slow, accelerates quickly in the middle, and then grinds to a gentle halt at the end. 
-- It feels very natural because most physical objects don't start or stop instantly.
 
-### 2) linear (Constant Speed): 
-- No acceleration, no deceleration. 
-- It moves at the exact same speed from the very first pixel to the last. 
-- This can feel stiff, but it's perfect for things like continuous spinning animations or color fades.
-
-### 3) ease-in (Slow Start): 
-- Starts completely slow and steadily builds up speed until it hits a sudden, fast finish. 
-- Think of a car stepping on the gas pedal.
-  
-### 4) ease-out (Slow End): 
-- Starts at peak velocity instantly and then smoothly decelerates to a gentle stop. 
-- This is great for UI elements like dropdown menus or slide-in alerts—they pop onto the screen quickly to grab attention, then settle down smoothly.
-  
-### 5) ease-in-out (Slow Start & Slow End): 
-- A perfect symmetry. 
-- It starts slow, accelerates through the middle, and slows back down at the very end.
 ---
 
 # Performance

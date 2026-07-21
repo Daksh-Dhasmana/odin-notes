@@ -1,5 +1,4 @@
 # Index
 
-- [Transform](./Transform.md)
-- [Transition](./Transition.md)
-- [Keyframes](./Keyframe.md)
+- [Animation_Index](./Animation/aniIndex.md)
+- [Accessibility_Index](./Accessibility/access_index.md)

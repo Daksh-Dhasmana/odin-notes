@@ -115,3 +115,12 @@
   transform: perspective(100px) translateZ(30px);
 }
 ```
+---
+## Transform-origin Property
+- The `transform-origin` property allows you to change the position of transformed elements.
+- Syntax
+`transform-origin: x-axis y-axis z-axis;`
+- Default value is 50% 50% 0.
+
+### Property-values
+- ![Not_loading](image.png)
