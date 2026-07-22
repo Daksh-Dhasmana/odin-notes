@@ -21,6 +21,5 @@
 
 ## Conformance Level
 - A conformance level is a measure of how strictly a system, web page, or piece of code complies with an official standard or specification.
-- It defines a clear scale of compliance—ranging from basic, essential requirements to advanced, high-precision standards.
-- The most common place developers encounter conformance levels is in the Web Content Accessibility Guidelines (WCAG), which ensure websites are usable for people with disabilities:
-![Error](image-1.png)
+- It has 3 levels
+![Error](image-2.png)
