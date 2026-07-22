@@ -21,6 +21,7 @@
     `}`
  `}`
 
+<<<<<<< HEAD
 # JSON.parse()
 - A common use of JSON is to exchange data to/from server.
 - When recieving the data from server, the data is a string.
@@ -39,3 +40,9 @@
     - Using JS function `json.stringify()` to convert it into string `const myJson=JSON.stringify(obj)`
     - now myJson is now a string and ready to be sent to server
     
+=======
+# Converting between objects and texts
+- There are two methods for this:
+   - `parse()`: Accepts JSON as a parameter and returns corresponding JS object.
+   - `stringify()`: Accepts object as a parameter and returns equivalent JSON string.
+>>>>>>> 2cc863948ce0ea6165bf52728da59cf7cb43db81
