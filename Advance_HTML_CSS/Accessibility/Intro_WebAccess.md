@@ -18,3 +18,9 @@
      - For example, if a user tried submitting a form and received an error such as “Error 113: Bad data”, they wouldn’t be able to understand what the error actually means or how to fix whatever caused the error.
    - **4) Robust**: 
      - Content must be accessible by current assistive technologies and other user agents, and must remain accessible as those technologies advance.
+
+## Conformance Level
+- A conformance level is a measure of how strictly a system, web page, or piece of code complies with an official standard or specification.
+- It defines a clear scale of compliance—ranging from basic, essential requirements to advanced, high-precision standards.
+- The most common place developers encounter conformance levels is in the Web Content Accessibility Guidelines (WCAG), which ensure websites are usable for people with disabilities:
+![Error](image-1.png)
