@@ -41,3 +41,68 @@ function App(){
 export default App;
 ```
 
+# Destructuring
+- A very common pattern you will come across in React is prop destructuring. 
+- Unpacking your props in the component parameters allows for more concise and readable code. 
+- NOTE: Use this over props
+- Check out prop destructuring in action in the example below.
+```
+function Button({ text, color, fontSize }) {
+  const buttonStyle = {
+    color: color,
+    fontSize: fontSize + "px"
+  };
+
+  return <button style={buttonStyle}>{text}</button>;
+}
+
+export default function App() {
+  return (
+    <div>
+      <Button text="Click Me!" color="blue" fontSize={12} />
+      <Button text="Don't Click Me!" color="red" fontSize={12} />
+      <Button text="Click Me!" color="blue" fontSize={20} />
+    </div>
+  );
+}
+```
+
+# Default Props
+- Default props are fallback values you give to a component's props so your code doesn't break if a prop isn't passed from the parent.
+- Think of default props as a safety net: "If the parent component gives me a color, I'll use it. If not, I'll default to white."
+- eg:
+```
+// Notice color = "black" and text = "Click Me!"
+function Button({ text = "Click Me!", color = "black", padding = 10 }) {
+  const buttonStyle = {
+    color: color,
+    padding: padding + "px"
+  };
+
+  return <button style={buttonStyle}>{text}</button>;
+}
+```
+
+# Passing functions as props
+- You can also pass functions as props
+```
+import Button from "./Button";
+Button.defaultProps={
+  text: "CLICK HERE",
+  cls: "blue"
+}
+function App(){
+  const sum=(num1)=>(num2)=>{
+    const ans=num1+num2;
+    return ans;
+  }
+  return( 
+  <>
+    <Button bgcols="black" cls="white" text={sum(1)(2)}></Button>//will show 3
+    <Button ></Button>
+    <Button text="Clas"></Button>
+  </>
+  );
+}
+export default App;
+```
