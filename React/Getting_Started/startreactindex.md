@@ -2,3 +2,5 @@
 - [React_Components](./React_Component.md)
 - [What is JSX](What_is_JSX.md)
 - [Passing Data Between Components](./Passing_Data_Between_Comps.md)
+- [Rendering Techniques](./RenderingTech.md)
+- [Keys in React](./Keys.md)
