@@ -109,3 +109,13 @@ const animals={
 - 3) Now the `List` component will take the object animal and rename it to `props`, NOTE: props here is still an object containing the array
 - 4) Now the It will traverse through the array using `map` function and pass the individual data to `ListItem` component.
 - 5) Now the `ListItem` will recieve a single element(or string) and turns it into a list item using `<li>` tag.
+
+# How does React Renders?
+- It does this in 3 steps
+- ![alt text](image-1.png)
+- Step 1)
+  - If the state of our React app changes, React updates the Virtual DOM(VDOM), which is quicker to update than real DOM
+- Step 2)
+  - Then React uses a proccess called "diffing", to compare the update VDOM to previous DOM
+- Step 3)
+  - Once it sees that changes, React uses a process called "Reconciliation" with DOM to update the real DOM with the changes Made

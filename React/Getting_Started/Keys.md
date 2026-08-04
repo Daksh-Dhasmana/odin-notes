@@ -12,3 +12,31 @@
     |What is it?| A unique tag given to an element.| A unique tag given to a component/element.
     | Why use it?| So CSS/JS can pinpoint and target one exact element on the page. | So React can pinpoint and target one exact element during re-renders.
     |Rule|Must be unique among elements.|Must be unique among sibling items in a list.
+
+# Using Keys
+- Keys are passed into the component or a DOM element as a prop. 
+- Keys are a private `prop`, that means they can't be passed down and they remain in the scope of their respective component only
+- Syntax
+```
+<Component key={value} />
+<div key={value}></div>
+```
+- Now, since keys are supposed to be unique, we can use a function `crypto.randomUUID()` or `Math.random()`, this will generate a unique id for keys.
+- Now, YOU SHOULD NEVER GENERATE A KEY DURING RENDERING as it defeats the purpose of key, look at example below
+```
+const todos = [ //DO like this
+  { task: "mow the yard", id: crypto.randomUUID() },
+  { task: "Work on Odin Projects", id: crypto.randomUUID() },
+  { task: "feed the cat", id: crypto.randomUUID() },
+];
+function TodoList() {
+  return (
+    <ul>
+      {todos.map((todo) => (
+        // DON'T do the following i.e. generating keys during render
+        <li key={crypto.randomUUID()}>{todo.task}</li>
+      ))}
+    </ul>
+  );
+}
+```
