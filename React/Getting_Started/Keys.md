@@ -1,6 +1,7 @@
 # What is Keys
 - A Key is a unique identifier that gives React a stable identity for each item in a list, enabling React to efficiently track which items have been added, changed, updated, or removed when the UI re-renders.
 - In short, Key is like a unique identifier that is attached to a item, so it becomes easy to track it when later on we need to delete modify or do other operations
+- Keys tell React which array item each component corresponds to, so that it can match them up later. This becomes important if your array items can move (e.g. due to sorting), get inserted, or get deleted. A well-chosen key helps React infer what exactly has happened, and make the correct updates to the DOM tree.
   
 # Why do we need Keys in React
 - We need keys in React so its Virtual DOM can assign a unique identity to each list item, allowing it to precisely track which items are added, updated, reordered, or deleted across re-renders
@@ -22,7 +23,7 @@
 <div key={value}></div>
 ```
 - Now, since keys are supposed to be unique, we can use a function `crypto.randomUUID()` or `Math.random()`, this will generate a unique id for keys.
-- Now, YOU SHOULD NEVER GENERATE A KEY DURING RENDERING as it defeats the purpose of key, look at example below
+- Now, YOU SHOULD NEVER GENERATE A KEY DURING RENDERING or like when using `map()` as it defeats the purpose of key, look at example below
 ```
 const todos = [ //DO like this
   { task: "mow the yard", id: crypto.randomUUID() },
@@ -40,3 +41,13 @@ function TodoList() {
   );
 }
 ```
+
+# Keys and State
+- **Where state actually lives**
+  - State is stored inside React's internal memory, not inside the key. The key is just the name tag React uses to track which state belongs to which component instance.
+- **What happens when Key changes?**  
+  - When a key changes, React does not update or modify the existing state. Instead:
+    - 1) React completely destroys (unmounts) the old component instance and wipes its state out of memory.
+    - 2) React creates (mounts) a brand-new component instance from scratch.
+    - 3) This new instance runs its useState(defaultValue) from the beginning, initializing with fresh default state.
+- In short, The key change comes first. You change the key, and React reacts to that change by destroying the old instance and creating a fresh one!
