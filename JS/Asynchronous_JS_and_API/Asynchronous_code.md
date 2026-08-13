@@ -1,5 +1,6 @@
 # Introduction
-- Since JavaScript is the language of the web, there are some functions that by necessity are going to take a decent amount of time to complete, such as fetching data from a server to display on your site. For this reason, JavaScript includes support for asynchronous functions, or to put it another way, functions that can happen in the background while the rest of your code executes.
+- Since JavaScript is the language of the web, there are some functions that by necessity are going to take a decent amount of time to complete, such as fetching data from a server to display on your site. 
+- For this reason, JavaScript includes support for asynchronous functions, or to put it another way, functions that can happen in the background while the rest of your code executes.
 
 # Callback
 - Callbacks are functions that are passed as arguments from one function to another and are executed after the completion of a certain task. 
@@ -14,13 +15,15 @@
    - Add Toppings
    - Bake the pizza
 - You can't bake pizza without preparing the dough, so what does callback hell does is that it gives a instruction/step on how to do it
-- `prepareDough(function() {`
-    `addToppings(function() {`
-        `bakePizza(function() {`
-            `console.log("Pizza is ready!");`
-        `});`
-    `});`
-`});`
+ ```
+prepareDough(function() {
+    addToppings(function() {
+        bakePizza(function() {
+            console.log("Pizza is ready!");
+        });
+    });
+});
+```
 - In above, what we essentially are telling that, prepare the dough first then add toppings and then bake pizza, and this complicates things as it become hard to read and debug
 
 
@@ -43,59 +46,63 @@
         - What Happens next: The `.catch()` block is triggered.
 
 - Syntax:
-- `let promise = new Promise((resolve, reject) => {`
-    `// Perform async operation`
-    `if (operationSuccessful) {`
-        `resolve("Task successful");`
-    `} else {`
-        `reject("Task failed");`
-    `}`
-`});`
+```
+- let promise = new Promise((resolve, reject) => {
+    // Perform async operation
+    if (operationSuccessful) {
+        resolve("Task successful");
+    } else {
+        reject("Task failed");
+    }`
+});
+```
 - resolve(value): Marks the promise as fulfilled and provides a result.
-` reject(error): Marks the promise as rejected with an error.
+- reject(error): Marks the promise as rejected with an error.
 
 - Let's take the above example of Baking pizza, we can use promises to make it clean.
-`function prepareDough() {`
-`    return new Promise((resolve) => {`
-`        console.log("Starting dough...");`
-`        setTimeout(() => {`
-`            console.log("Dough is ready! 🌾");`
-`           resolve();`
-`        }, 2000);`
-`    });`
-`}`
-``function addToppings() {` 
-`    return new Promise((resolve) => {` 
-`        console.log("Adding toppings...");` 
-`        setTimeout(() => {` 
-`            console.log("Toppings are on! 🍕");` 
-`            resolve(); ` 
-`        }, 1500);` 
-`    });` 
-`}`
-`function bakePizza() {`
-`    return new Promise((resolve) => {`
-`        console.log("Baking pizza...");`
-`        setTimeout(() => {`
-`            console.log("Baking finished! 🔥");`
-`           resolve();`
-`        }, 3000);`
-`    });`
-`}`
-``
-`prepareDough()`
-`    .then(() => {`
-`       return addToppings();`
-`    })`
-`    .then(() => {`
-`       return bakePizza();`
-`    })`
-`    .then(() => {`
-`        console.log("Pizza is ready! 🎉 Enjoy your meal.");`
-`    })`
-`    .catch((error) => {`
-`        console.error("Oh no, something went wrong making the pizza:", error);`
-`    });`
+```
+function prepareDough() {
+    return new Promise((resolve) => {
+        console.log("Starting dough...");
+        setTimeout(() => {`
+            console.log("Dough is ready! 🌾");
+           resolve();
+        }, 2000);
+    });
+}
+function addToppings() { 
+    return new Promise((resolve) => { 
+        console.log("Adding toppings..."); 
+        setTimeout(() => {` 
+            console.log("Toppings are on! 🍕"); 
+            resolve(); 
+        }, 1500);`
+    });`
+}
+function bakePizza() {
+    return new Promise((resolve) => {
+        console.log("Baking pizza...");
+        setTimeout(() => {`
+            console.log("Baking finished! 🔥");
+           resolve();
+        }, 3000);
+    });
+}
+
+prepareDough()
+    .then(() => {
+       return addToppings();
+    })
+    .then(() => {
+       return bakePizza();
+    })
+    .then(() => {
+        console.log("Pizza is ready! 🎉 Enjoy your meal.");
+    })
+    .catch((error) => {
+        console.error("Oh no, something went wrong making the pizza:", error);
+    });
+```
 - `.then()` is a listener that only runs if the Promise successfully called resolve().
 - `.catch()` is a listener that only runs if the Promise failed and called reject(). 
 

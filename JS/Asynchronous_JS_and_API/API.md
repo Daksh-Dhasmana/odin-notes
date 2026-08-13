@@ -13,25 +13,30 @@
 - Getting data from API into our code.
 - To get data from API we are gonna use fetch
 - Syntax:
-- `// URL (required), options (optional)`
-`fetch('https://url.com/some/url')`
-  `.then(function(response) {`
-    `// Successful response :)`
-  `})`
-  `.catch(function(err) {`
-    `// Error :(`
-  `});`
+```
+// URL (required), options (optional)
+fetch('https://url.com/some/url')
+  .then(function(response) {
+    // Successful response :)
+  })
+  .catch(function(err) {
+    // Error :(
+  });
+```
+
 - `fetch()` is a built in JS function that sends a HTTP request to link you provided. By default, fetch() immediately returns a promise.
 - `.then()` is a method that waits for Promise to resolve successfully.
-      - response object: The server's answer's is passed into function as response package
-          - NOTE: To actually read the data, you need to parse it first as it doesn't have the raw JSON, we can parse it using `return response.json()`
+  - response object: The server's answer's is passed into function as response package
+        - NOTE: To actually read the data, you need to parse it first as it doesn't have the raw JSON, we can parse it using `return response.json()`
 - For GIPHY, the url looks like this `'https://api.giphy.com/v1/gifs/translate?api_key=YOUR_KEY_HERE&s=cats'`
 
 - To get the particular details you want, write `console.log(response)` like below
-- `fetch('API')`
-        `.then(function(response){`
-          `return response.json();`
-    `})`
-    `.then(function(response){`
-      `console.log(response);`      
-    `})`
+```
+fetch('API')
+        .then(function(response){
+          return response.json();
+    })
+    .then(function(response){
+      console.log(response);    
+    })
+```
