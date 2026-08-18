@@ -49,3 +49,45 @@ import Greeting from './Greeting.jsx';
     - The promise is rejected if no element is found or if more than one element is found after a default timeout of 1000ms. 
     - is used in React Testing Library when you are waiting for something to appear asynchronously on the screen (like data arriving from an API or a component appearing after a setTimeout).
     - If you need to find more than one element, use findAllBy
+- **2) Multiple Elements**
+    - `getAllBy...`: 
+      - Returns an array of all matching nodes for a query, and throws an error if no elements match.
+    - `queryAllBy...`: 
+      - Returns an array of all matching nodes for a query, and return an empty array ([]) if no elements match.
+    - `findAllBy...`: 
+      - Returns a promise which resolves to an array of elements when any elements are found which match the given query. 
+      - The promise is rejected if no elements are found after a default timeout of 1000ms.
+- ![Error](image.png)
+
+## Priorities
+- your test should resemble how users interact with your code (component, page, etc.) as much as possible.
+- **1) Queries Accessible to Everyone**
+  - Queries that reflect the experience of visual/mouse users as well as those that use assistive technology.
+  - **i. getByRole**
+    -  This can be used to query every element that is exposed in the accessibility tree.
+    -  With the name option you can filter the returned elements by their accessible name
+    -  This should be your top preference for just about everything. 
+    -  There's not much you can't get with this (if you can't, it's possible your UI is inaccessible). 
+    -  Most often, this will be used with the name option like so: getByRole('button', {name: /submit/i})
+   - **ii. getByLabelText**
+     - This method is really good for form fields. When navigating through a website form, users find elements using label text. 
+     - This method emulates that behavior, so it should be your top preference.
+   - **iii. getByPlaceholderText**
+     -  A placeholder is not a substitute for a label. 
+     -  But if that's all you have, then it's better than alternatives.
+  - **iv. getByText**: 
+    - Outside of forms, text content is the main way users find elements. 
+    - This method can be used to find non-interactive elements (like divs, spans, and paragraphs).
+  - **v. getByDisplayValue**: 
+    - The current value of a form element can be useful when navigating a page with filled-in values.
+- **2) Semantic Queries**
+  - HTML5 and ARIA compliant selectors. 
+  - Note that the user experience of interacting with these attributes varies greatly across browsers and assistive technology.
+  - **i. getByAltText**: 
+    - If your element is one which supports alt text (img, area, input, and any custom element), then you can use this to find that element.
+  - **ii. getByTitle**: 
+    - The title attribute is not consistently read by screenreaders, and is not visible by default for sighted users
+- **3) Test IDs**
+  - **i. getByTestId**: 
+    - The user cannot see (or hear) these, so this is only recommended for cases where you can't match by role or text or it doesn't make sense (e.g. the text is dynamic).
+    - `A data-testid=""` is essentially a custom `id` attribute specifically reserved for testing, so your tests don't break if a designer changes the CSS class name or the button text later.
