@@ -30,7 +30,30 @@ import Greeting from './Greeting.jsx';
 ```
 - [CheetSheet](https://testing-library.com/docs/react-testing-library/cheatsheet)
 - Above is the cheetsheet for testing
+- eg:
+```
+import React from 'react';
+import { describe, it, expect } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import "@testing-library/jest-dom/vitest"; 
+import Greeting from './Greeting.jsx';
 
+describe("Greeting",()=>{
+    it("renders a default greeting",()=>{
+        render(<Greeting/>)
+        expect(screen.getByText("Hello, World!")).toBeInTheDocument();
+    });
+    it("renders greeting with a name",()=>{
+        render(<Greeting name={"Pedro"}/>)
+        expect(screen.getByText("Hello, Pedro!")).toBeInTheDocument();
+    })
+});
+```
+- `describe(...)`: Creates a test suite (a grouping block) to organize all tests related to the Greeting component.
+- `it(...)`: Defines an individual test case with a descriptive title explaining what is being tested.
+- `render(...)`: Mounts the Greeting component into a virtual DOM so Vitest and React Testing Library can interact with it.
+- `screen.getByText("Hello, World!")`: Searches the rendered virtual DOM for an element containing the exact text "Hello, World!".
+- `expect(...).toBeInTheDocument()`: Asserts that the element was actually found and is present in the document. If it's missing, the test fails.
  # Queries
  - Queries are the methods that Testing Library gives you to find elements on the page. 
  - There are several types of queries ("get", "find", "query");
@@ -91,3 +114,76 @@ import Greeting from './Greeting.jsx';
   - **i. getByTestId**: 
     - The user cannot see (or hear) these, so this is only recommended for cases where you can't match by role or text or it doesn't make sense (e.g. the text is dynamic).
     - `A data-testid=""` is essentially a custom `id` attribute specifically reserved for testing, so your tests don't break if a designer changes the CSS class name or the button text later.
+- As stated by the React Testing Library docs, `ByRole` methods are favored methods for querying, especially when paired with the name option. 
+- For example, we could improve the specificity of the above query like so:
+```
+getByRole("heading", { name: "Our First Test" }). 
+ ```
+- Queries that are done through ByRole ensure that our UI is accessible to everyone no matter what mode they use to navigate the webpage (i.e. mouse or assistive technologies).
+# Simulating User Events
+- Let's take a look at a code below
+```
+// App.jsx
+import { useState } from "react";
+const App = () => {
+  const [heading, setHeading] = useState("Magnificent Monkeys");
+  const clickHandler = () => {
+    setHeading("Radical Rhinos");
+  };
+  return (
+    <>
+      <button type="button" onClick={clickHandler}>
+        Click Me
+      </button>
+      <h1>{heading}</h1>
+    </>
+  );
+};
+export default App;
+```
+
+```
+// App.test.jsx
+import { describe, it, expect } from "vitest";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import App from "./App";
+describe("App component", () => {
+  it("renders magnificent monkeys", () => {
+    // since screen does not have the container property, we'll destructure render to obtain a container for this test
+    const { container } = render(<App />);
+    expect(container).toMatchSnapshot();
+  });
+  it("renders radical rhinos after button click", async () => {
+    const user = userEvent.setup();
+    render(<App />);
+    const button = screen.getByRole("button", { name: "Click Me" });
+    await user.click(button);
+    expect(screen.getByRole("heading").textContent).toMatch(/radical rhinos/i);
+  });
+});
+```
+- The tests speak for themselves. In the first test, we utilize snapshots to check whether all the nodes render as we expect them to. 
+- In the second test, we simulate a click event. 
+- Then we check if the heading changed. toMatch is one of the various assertions we could have made. 
+- Notice that the callback function for the second test is an async one, as we need this in order to await user.click().
+
+# What are Snapshots
+- Snapshot testing is just comparing our rendered component with an associated snapshot file. 
+- Snapshot tests are fast and easy to write. One assertion saves us from writing multiple lines of code. 
+- For example, with a `toMatchSnapshot`, we’re spared of asserting the existence of the button and the heading. They also don’t let unexpected changes creep into our code.
+- Snapshot tests capture the output of a piece of code and save it to a file. 
+- On subsequent runs, the output is compared against the saved snapshot. 
+- If the output changes, the test fails. Either the change is a bug, or the snapshot needs to be updated.
+- It stores the snapshot in a __snapshots__ directory next to your test file:
+- If you open that file, you'll see a serialized representation of the value:
+```
+exports['generates a greeting 1'] = `
+{
+  "message": "Hello, Alice!",
+  "timestamp": null,
+  "version": 2,
+}
+```
+- When using snapshot, Vitest will take a snapshot of the given value, then compare it to a reference snapshot file stored alongside the test. 
+- The test will fail if the two snapshots do not match: either the change is unexpected, or the reference snapshot needs to be updated to the new version of the result.
