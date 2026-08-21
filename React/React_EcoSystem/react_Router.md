@@ -61,3 +61,43 @@ createRoot(document.getElementById("root")).render(
 - 2) We define an array of paths and components and pass it to `createBrowserRouter` and it creates a router objects(this objects handles heavy lifting stuff like browser history and back button)
 - 3) Then we pass the object into `RouterProvider` which is rendered.
 - 4) The `<Link>` component in React Router is used for client-side navigation, allowing users to move between different views/pages in your app instantly without triggering a browser refresh.
+
+## Nested Routes
+- Nested routes is a powerful tool that can render/change a specific portion of page without replacing the entire page
+- Like this
+- ![Error](image.png)
+- ![Error](image-1.png)
+- In nested routes, we use an `<Outlet/>` tag, that mearly acts as a placeholder for the portion that will be rendered/changed. we can place it insie `App.jsx`
+- Now, The children array, inside `main.jsx` tells React Router which sub-routes belong inside a parent route. It establishes the parent-child relationship so React Router knows what component to drop into the parent's `<Outlet/>`.
+```
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router";
+import App from "./App";
+import Profile from "./Profile";
+import Project from "./Project";
+import Setting from "./Setting";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children:[
+      {
+        path: "project",
+        element: <Project/>
+      },
+      {
+        path: "setting",
+        element: <Setting/>
+      },
+    ]
+  },
+]);
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <RouterProvider router={router} />
+  </StrictMode>,
+);
+```
+- As we can see in above example code that, `Project` and `Setting` are the children that belong to `App.jsx`
+- 
