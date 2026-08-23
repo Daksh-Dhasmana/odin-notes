@@ -66,8 +66,8 @@ createRoot(document.getElementById("root")).render(
 - Nested routes is a powerful tool that can render/change a specific portion of page without replacing the entire page
 - Like this
 - ![Error](image.png)
-- ![Error](image-1.png)
 - In nested routes, we use an `<Outlet/>` tag, that mearly acts as a placeholder for the portion that will be rendered/changed. we can place it insie `App.jsx`
+- ![Error](image-1.png)
 - Now, The children array, inside `main.jsx` tells React Router which sub-routes belong inside a parent route. It establishes the parent-child relationship so React Router knows what component to drop into the parent's `<Outlet/>`.
 ```
 import { StrictMode } from "react";
@@ -91,7 +91,7 @@ const router = createBrowserRouter([
         element: <Setting/>
       },
     ]
-  },
+  },  
 ]);
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -100,4 +100,38 @@ createRoot(document.getElementById("root")).render(
 );
 ```
 - As we can see in above example code that, `Project` and `Setting` are the children that belong to `App.jsx`
-- 
+```
+import { useParams } from "react-router";
+import DefaultProfile from "./DefaultProfile";
+import Spinach from "./Spinach";
+import Popeye from "./Popeye";
+const Profile = () => {
+  const { name } = useParams();
+  return (
+    <div>
+      <h1>Hello from profile page!</h1>
+      <p>So, how are you?</p>
+      <hr />
+      <h2>The profile visited is here:</h2>
+      {name === "popeye" ? (
+        <Popeye />
+      ) : name === "spinach" ? (
+        <Spinach />
+      ) : (
+        <DefaultProfile />
+      )}
+    </div>
+  );
+};
+export default Profile;
+```
+- This component uses React Router's `useParams` hook to manually check the URL and decide which sub-component to display on the screen.
+- `const { name } = useParams()`;
+  - This reads the dynamic variable from your router path `(path: "profile/:name")`. If someone visits `/profile/popeye`, the variable name becomes "popeye".
+- The Manual Switch (Ternary Operator):
+  - The block inside { ... } acts as a manual decision-maker:
+    - If name equals "popeye", it displays `<Popeye/>`.
+    - If name equals "spinach", it displays `<Spinach/>`.
+    - If name is anything else (or undefined), it falls back to displaying `<DefaultProfile/>`.
+- This is the manual, conditional-rendering approach to dynamic content. 
+- Instead of letting React Router handle sub-page switching automatically using an <Outlet/> and nested route config, this component handles all the matching logic inside its own JSX code.
