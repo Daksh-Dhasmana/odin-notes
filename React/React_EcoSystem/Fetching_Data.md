@@ -28,3 +28,10 @@ const Image = () => {
 };
 export default Image;
 ```
+
+# Including an identification header
+- Sometimes, an API may require clients to identify their traffic
+- You can do it by including a custom identifier header, such as a `User-Agent` or any other identifier the API owner specifies inside the request options
+- It is used to prevent spamming and block malicious bots.
+- Here, traffic refers to the flow of network data and HTTP requests moving from your application to the API server.
+- When an API provider talks about "identifying your traffic," they mean recognizing which specific app or client is generating those incoming requests.
