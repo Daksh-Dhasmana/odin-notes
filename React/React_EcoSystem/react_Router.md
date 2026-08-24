@@ -60,7 +60,7 @@ createRoot(document.getElementById("root")).render(
 - 1) We import `createBrowserRouter`, `RouterProvider` from react-router
 - 2) We define an array of paths and components and pass it to `createBrowserRouter` and it creates a router objects(this objects handles heavy lifting stuff like browser history and back button)
 - 3) Then we pass the object into `RouterProvider` which is rendered.
-- 4) The `<Link>` component in React Router is used for client-side navigation, allowing users to move between different views/pages in your app instantly without triggering a browser refresh.
+- 4) The `<Link>` component in React Router is used for client-side navigation, allowing users to move between different views/pages in your app instantly without triggering a browser refresh. And it converts into `<a>` during runtime.
 
 ## Nested Routes
 - Nested routes is a powerful tool that can render/change a specific portion of page without replacing the entire page
@@ -70,35 +70,31 @@ createRoot(document.getElementById("root")).render(
 - ![Error](image-1.png)
 - Now, The children array, inside `main.jsx` tells React Router which sub-routes belong inside a parent route. It establishes the parent-child relationship so React Router knows what component to drop into the parent's `<Outlet/>`.
 ```
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router";
 import App from "./App";
 import Profile from "./Profile";
-import Project from "./Project";
-import Setting from "./Setting";
-const router = createBrowserRouter([
+import ErrorPage from "./ErrorPage";
+
+const routes = [
   {
     path: "/",
     element: <App />,
-    children:[
+    errorElement: <ErrorPage />,
+    children: [
       {
-        path: "project",
-        element: <Project/>
+        path: "profile", // Matches /profile
+        element: <Profile />,
       },
       {
-        path: "setting",
-        element: <Setting/>
+        path: "profile/:name", // Matches /profile/popeye (relative path, no leading slash)
+        element: <Profile />,
       },
-    ]
-  },  
-]);
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>,
-);
+    ],
+  },
+];
+
+export default routes;
 ```
+- All routes defined inside children render inside `<App/>`'s `<Outlet/>`. The outer `<App/>` shell never refreshes or unmounts when navigating between these child routes.
 - As we can see in above example code that, `Project` and `Setting` are the children that belong to `App.jsx`
 ```
 import { useParams } from "react-router";
@@ -135,3 +131,55 @@ export default Profile;
     - If name is anything else (or undefined), it falls back to displaying `<DefaultProfile/>`.
 - This is the manual, conditional-rendering approach to dynamic content. 
 - Instead of letting React Router handle sub-page switching automatically using an <Outlet/> and nested route config, this component handles all the matching logic inside its own JSX code.
+
+# Context and useOutletContext
+- `<Outlet/>` have a prop called `context` and we can pass any value 
+- Inside any component that would be rendered within that outlet (even “grandchild” components), we can call the `useOutletContext()` hook which will return whatever we passed into that context prop.
+- If we passed in an array or object, we could even destructure it!
+- In short, using, `context` we can pass any value which can be used by any component to use, and we can get it using `useOutletContext()`.
+```
+// Parent route
+function Parent() {
+  const [count, setCount] = React.useState(0);
+  return <Outlet context={[count, setCount]} />;
+}
+```
+```
+// Child route
+import { useOutletContext } from "react-router";
+
+function Child() {
+  const [count, setCount] = useOutletContext();
+  const increment = () => setCount((c) => c + 1);
+  return <button onClick={increment}>{count}</button>;
+}
+```
+
+# Protected routes and navigation
+- Often, you will need to decide whether a certain route should be rendered or not, Like, an authentication page
+- This is where we can use the useNavigate hook which lets you navigate to URLs or even go back down the user’s history.
+
+## useNavigate
+- -`useNavigate()` Returns a function that lets you navigate programmatically in the browser in response to user interactions or effects.
+- The returned function signature is `navigate(to, options?)/navigate(delta)`
+ where: 
+   - `to`can be a string path, a To object, or a number.
+   - `options` contains `options` for modifying the navigation.
+     - `relative`: "`route`" or "`path`" to control `relative` routing logic
+     - `replace`: Replace the current entry in the History stack
+state: Optional history.state to include with the new Location
+- example
+```
+import { useNavigate } from "react-router";
+
+function SomeComponent() {
+  let navigate = useNavigate();
+  return (
+    <button onClick={() => navigate(-1)}>
+      Go Back
+    </button>
+  );
+}
+```
+  
+

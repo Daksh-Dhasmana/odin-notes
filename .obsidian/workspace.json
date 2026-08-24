@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSS/Advanced_Grid_Properties.md",
+                "file": "JS/Asynchronous_JS_and_API/Asynchronous_code.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Advanced_Grid_Properties"
+              "title": "Asynchronous_code"
             }
           }
         ]
@@ -41,7 +41,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -78,7 +80,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "01e4d1204d167096",
@@ -185,12 +188,18 @@
   },
   "active": "d0499c89b1ff41c6",
   "lastOpenFiles": [
-    "CSS/CSS_Function.md",
+    "JS/Asynchronous_JS_and_API/Async_and_Await.md",
+    "JS/Asynchronous_JS_and_API/Asynchronous_code.md",
+    "JS/Asynchronous_JS_and_API/API.md",
+    "JS/Asynchronous_JS_and_API/index.md",
+    "JS/JsIndex.md",
+    "React/React_EcoSystem/react_Router.md",
+    "React/React_Testing/Intro.md",
     "CSS/Advanced_Grid_Properties.md",
+    "CSS/CSS_Function.md",
     "CSS/CSS_Confusion.md",
     "JS/npm.md",
     "CSS/Position.md",
-    "JS/JsIndex.md",
     "CSS/Form_Validation.md",
     "JS/Factory_Functions.md",
     "JS/JS_Tags_and_Attributes.md",

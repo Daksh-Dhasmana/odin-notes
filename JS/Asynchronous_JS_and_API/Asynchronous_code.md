@@ -26,7 +26,6 @@ prepareDough(function() {
 ```
 - In above, what we essentially are telling that, prepare the dough first then add toppings and then bake pizza, and this complicates things as it become hard to read and debug
 
-
 ## Solution to Callback Hell
 
 ### Promises

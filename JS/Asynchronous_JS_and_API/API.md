@@ -40,3 +40,19 @@ fetch('API')
       console.log(response);    
     })
 ```
+
+# Including an identification header
+- Some APIs might require clients to identify their traffic. When this is the case, you can do it by including a custom identifier header, such as a `User-Agent` or any other identifier the API owner specifies inside the request options
+```
+const image = document.querySelector("img");
+fetch("https://picsum.photos/v2/list", {
+  headers: {
+    "User-Agent": "the-odin-project"
+  }
+})
+  .then((response) => response.json())
+  .then((response) => {
+    image.src = response[0].download_url;
+  })
+  .catch((error) => console.error(error));
+```
