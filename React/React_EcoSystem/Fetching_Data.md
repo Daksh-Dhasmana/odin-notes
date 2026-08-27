@@ -148,5 +148,62 @@ const Image = () => {
 - 3) Failure Occurs: The server responds with an error (e.g., a 500 server crash or no internet connection).
      - `.catch()` runs and saves the error to state.
      - `.finally()` runs and sets loading to false.
-- 4) Re-render: Now that loading is false, React stops displaying "Loading...", evaluates `if (error)`, and replaces the text on screen with `<p>A network error was encountered</p>`.
+- 4) Re-render: Now that loading is false, React stops displaying "Loading...", evaluates `if (error)`, and replaces the text on screen with  `<p>A network error was encountered</p>`.
 - Loading is shown during the wait for the server, regardless of whether the eventual outcome is success or failure.
+
+# Using custom Hooks
+- We can seperate out the fetching logic using a custom hook.
+- So it becomes reusable across different components
+- Rules for Hooks
+  - It should start with "use", like `useImageUrl`.
+  - It should be at top, and other functions like `useState` must be inside the custom hook
+- Look at example Below
+
+```
+import { useState, useEffect } from "react";
+
+const useImageURL = () => {
+  const [imageURL, setImageURL] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("https://picsum.photos/v2/list", {
+      headers: {
+        "User-Agent": "the-odin-project"
+      }
+    })
+      .then((response) => {
+        if (response.status >= 400) {
+          throw new Error("server error");
+        }
+        return response.json();
+      })
+      .then((response) => setImageURL(response[0].download_url))
+      .catch((error) => setError(error))
+      .finally(() => setLoading(false));
+  }, []);
+
+  return { imageURL, error, loading };
+};
+
+const Image = () => {
+  const { imageURL, error, loading } = useImageURL();
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>A network error was encountered</p>;
+
+  return (
+    <>
+      <h1>An image</h1>
+      <img src={imageURL} alt={"placeholder text"} />
+    </>
+  );
+};
+```
+- In here, we are using a custom hook `useImageUrl`, in which the whole fetching process is done,
+- Then `useImageUrl` return necessary things like ImageUrl(which contains the data), error(if an error occured), loading(when the page is loaded and to show the user something in meantime).
+- After that, `Image` get items from `useImageUrl` and put it to use.
+
+# Managing multiple fetch requests
+- When there are multiple fetch requests, you web-app may become slow as multiple fetch requests run sequentially and instead of in parallel, and this is called "waterfall of requests". 
