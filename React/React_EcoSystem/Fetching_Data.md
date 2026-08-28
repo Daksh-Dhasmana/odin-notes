@@ -206,4 +206,106 @@ const Image = () => {
 - After that, `Image` get items from `useImageUrl` and put it to use.
 
 # Managing multiple fetch requests
-- When there are multiple fetch requests, you web-app may become slow as multiple fetch requests run sequentially and instead of in parallel, and this is called "waterfall of requests". 
+- When there are multiple fetch requests, you web-app may become slow as multiple fetch requests run sequentially and instead of in parallel, and this is called "waterfall of requests".
+- The example below depicts a waterfall of requests
+```
+//Profile.jsx
+const Profile = ({ delay }) => {
+  const [imageURL, setImageURL] = useState(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      fetch('https://jsonplaceholder.typicode.com/photos', { mode: 'cors' })
+        .then((response) => response.json())
+        .then((response) => setImageURL(response[0].url))
+        .catch((error) => console.error(error));
+    }, delay);
+  }, [delay]);
+
+  return (
+    (imageURL && (
+      <div>
+        <h3>Username</h3>
+        <img src={imageURL} alt={'profile'} />
+        <Bio delay={1000} />//This is where Bio component is called
+      </div>
+    )) || <h1>Loading...</h1>
+  );
+};
+
+//Bio.jsx
+const Bio = ({ delay }) => {
+  const [bioText, setBioText] = useState(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      fetch('https://jsonplaceholder.typicode.com/photos', { mode: 'cors' })
+        .then((response) => response.json())
+        .then(() => setBioText('I like long walks on the beach and JavaScript'))
+        .catch((error) => console.error(error));
+    }, delay);
+  }, [delay]);
+
+  return (
+    bioText && (
+      <>
+        <p>{bioText}</p>
+      </>
+    )
+  );
+};
+```
+- Above code is an example of "waterfall of requests", in this, `Bio.jsx` depends on `Profile.jsx` to load, meaning, when `Profile.jsx` finishes loading/rendering then only `Bio.jsx` starts rendering, Because both `Profile.jsx` and `Bio.jsx` require seperate API requests, leading to stacking latency(Delay)
+- Solution of the problem is moving the children up in heirarchy 
+- Take a look at this example here, 
+ ```
+//Profile.jsx
+const Profile = ({ delay }) => {
+  const [imageURL, setImageURL] = useState(null);
+  const [bioText, setBioText] = useState(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      fetch("https://jsonplaceholder.typicode.com/photos", { mode: "cors" })
+        .then((response) => response.json())
+        .then((response) => setImageURL(response[0].url))
+        .catch((error) => console.error(error));
+    }, delay);
+
+    setTimeout(() => {
+      fetch("https://jsonplaceholder.typicode.com/photos", { mode: "cors" })
+        .then((response) => response.json())
+        .then((response) =>
+          setBioText("I like long walks on the beach and JavaScript")
+        )
+        .catch((error) => console.error(error));
+    }, delay + 2000); // here we add an extra 2 seconds of delay
+  }, [delay]);
+
+  return (
+    (imageURL && (
+      <div>
+        <h3>Username</h3>
+        <img src={imageURL} alt={"profile"} />
+        <Bio bioText={bioText} />
+      </div>
+    )) || <h1>Loading...</h1>
+  );
+};
+
+export default Profile;
+
+//Bio.jsx
+const Bio = ({ bioText }) => {
+  return (
+    bioText && (
+      <>
+        <p>{bioText}</p>
+      </>
+    )
+  );
+};
+
+
+export default Bio;
+```
