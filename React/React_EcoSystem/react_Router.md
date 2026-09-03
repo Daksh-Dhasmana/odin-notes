@@ -1,4 +1,4 @@
-# React Router
+  # React Router
 
 ## Single Page Application(SPA)
 - A Single Page Application (SPA) is a web app that loads content dynamically without refreshing the whole page

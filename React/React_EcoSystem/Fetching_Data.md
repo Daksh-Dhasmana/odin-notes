@@ -256,7 +256,7 @@ const Bio = ({ delay }) => {
 };
 ```
 - Above code is an example of "waterfall of requests", in this, `Bio.jsx` depends on `Profile.jsx` to load, meaning, when `Profile.jsx` finishes loading/rendering then only `Bio.jsx` starts rendering, Because both `Profile.jsx` and `Bio.jsx` require seperate API requests, leading to stacking latency(Delay)
-- Solution of the problem is moving the children up in heirarchy 
+- Solution of the problem is moving the children up in heirarchy, like in example below. 
 - Take a look at this example here, 
  ```
 //Profile.jsx
@@ -309,3 +309,10 @@ const Bio = ({ bioText }) => {
 
 export default Bio;
 ```
+
+- Each request has to have a minimum of three states to achieve an optimal user experience:
+  - data, 
+  - loading, 
+  - error.
+- There are also some libraries available to help us with data fetching.
+- Go to this link for a brief overview [Click here](https://blog.logrocket.com/modern-api-data-fetching-methods-react/)

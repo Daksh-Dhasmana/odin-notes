@@ -6,3 +6,4 @@
 - [States and Effects](./States_and_Effects/state_index.md)
 - [React Test](./React_Testing/React_test_index.md)
 - [React_EcoSystem](./React_EcoSystem/introEco.md)
+- [More React Concepts](./More_Concepts/more_index.md)
