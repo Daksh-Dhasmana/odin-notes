@@ -31,3 +31,4 @@ int main() {
 - Like, if we changes a single function that is in middle, it could break the entire application
 - This is why we use context API
 
+# 
