@@ -25,3 +25,6 @@
 # Restart the application
 -  there is a built-in option to automatically restart the application when a file changes. This is useful for development purposes
 -  `node --watch app.js`
+
+# How to make HTTP requests with Node
+- We can fetch API with Undici in node.js
