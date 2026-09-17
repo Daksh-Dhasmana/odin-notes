@@ -26,5 +26,15 @@
 -  there is a built-in option to automatically restart the application when a file changes. This is useful for development purposes
 -  `node --watch app.js`
 
-# How to make HTTP requests with Node
-- We can fetch API with Undici in node.js
+- **Q) But we use fetch in both React and Node.js, so when to use what?**
+  - We DO use API fetch in both React and Node.js, but for different purposes.
+  - React (Frontend / Browser): 
+    - Fetches data to display it to the user on their screen (e.g., getting a user's profile to render their avatar).
+  - Node.js (Backend / Server): 
+    - Fetches data to process it, secure it, or store it before sending it along (e.g., calling a payment system like Stripe to charge a credit card).
+  - So, Node.js = V8 JavaScript Engine +C++ Bindings (Operating System Tools)
+    - **The V8 JS Engine**: Google Chrome's open-source C++ program that reads your standard JavaScript syntax (variables, functions, arrays, async/await) and compiles it into machine code.
+    - **C++ Bindings**: Native C++ libraries (like libuv) built into Node that handle system-level hardware tasks:
+      - Accessing the Filesystem (reading/writing files on disk).
+      - Managing Network I/O (opening TCP sockets and HTTP server ports).
+      - Interacting with the Operating System (checking CPU usage, RAM, environment variables).
