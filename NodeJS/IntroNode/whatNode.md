@@ -12,6 +12,17 @@
   - When Node.js performs an I/O operation, like reading from the network, accessing a database or the filesystem, instead of blocking the thread and wasting CPU cycles waiting, Node.js will resume the operations when the response comes back.
   - This allows Node.js to handle thousands of concurrent connections with a single server without introducing the burden of managing thread concurrency, which could be a significant source of bugs.
   - To summarize, Node.js is JS which executes on server.
+- So, Node.js = V8 JavaScript Engine +C++ Bindings (Operating System Tools)
+    - **The V8 JS Engine**: Google Chrome's open-source C++ program that reads your standard JavaScript syntax (variables, functions, arrays, async/await) and compiles it into machine code.
+    - **C++ Bindings**: Native C++ libraries (like libuv) built into Node that handle system-level hardware tasks:
+      - Accessing the Filesystem (reading/writing files on disk).
+      - Managing Network I/O (opening TCP sockets and HTTP server ports).
+      - Interacting with the Operating System (checking CPU usage, RAM, environment variables).
+# Why use Node.js
+- No need to learn extra language for server
+- Can share code between back-end and front-end.
+- Node.js has massive community behind it.
+- Huge amount of third party 
 # Event Driven
 - Node is an asynchronous event driven JavaScript runtime. 
 - In this context, asynchronous means that when you write your code, you do not try to predict the exact sequence in which every line will run. 
@@ -32,9 +43,4 @@
     - Fetches data to display it to the user on their screen (e.g., getting a user's profile to render their avatar).
   - Node.js (Backend / Server): 
     - Fetches data to process it, secure it, or store it before sending it along (e.g., calling a payment system like Stripe to charge a credit card).
-  - So, Node.js = V8 JavaScript Engine +C++ Bindings (Operating System Tools)
-    - **The V8 JS Engine**: Google Chrome's open-source C++ program that reads your standard JavaScript syntax (variables, functions, arrays, async/await) and compiles it into machine code.
-    - **C++ Bindings**: Native C++ libraries (like libuv) built into Node that handle system-level hardware tasks:
-      - Accessing the Filesystem (reading/writing files on disk).
-      - Managing Network I/O (opening TCP sockets and HTTP server ports).
-      - Interacting with the Operating System (checking CPU usage, RAM, environment variables).
+  
