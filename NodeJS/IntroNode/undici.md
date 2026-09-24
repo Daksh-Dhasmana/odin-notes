@@ -37,6 +37,6 @@ await fetch('https://example.com', {
 })
 ```
 
-# Reading/Writing File
+# Reading/Writing Files
 ## readFile
 - Executes asynchronously, meaning that the code continues to execute without waiting for the file operation to complete. It requires a callback function to handle the file content once it’s read.
