@@ -18,7 +18,8 @@ import { request } from 'undici';
 const { statusCode, body } = await request('https://api.example.com/data');
 const data = await body.json();
 ```
-
+- You should prefer `request` over `fetch` for maximum execution speed, higher request throughput, and significantly lower memory overhead in high-performance Node.js services.
+- Throughput is the amount of work or data a system processes within a given window of time
 # Keep Fetch and FormData together
 - When you send a FormData body, keep fetch and FormData from the same implementation.
 - Now you can use `install()` which changes the global environment But if you are writing an open-source library or a package meant to be shared with other developers, modifying global variables can cause unexpected side effects in their code. In that specific case, explicit imports 

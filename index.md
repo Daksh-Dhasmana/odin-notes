@@ -8,3 +8,4 @@
 - [WebPack](./WebPack.md)
 - [React](./React/react_Index.md)
 - [Node JS](./NodeJS/indexNode.md)
+- [Web Dev Important Terms](./Terms.md)

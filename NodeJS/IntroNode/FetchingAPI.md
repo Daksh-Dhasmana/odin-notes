@@ -4,7 +4,7 @@
 ```
 async function main(){
     const response=await fetch("URL");
-    cont data= await response.json();
+    const data= await response.json();
     console.log(data);
 }
 main().catch(console.error)
@@ -37,4 +37,4 @@ main().catch(console.error);
   - `User-Agent` identifies the client or library making the request.
 
 # Customizing fetch API using undici
-- 
+- Undici allows you to customize the Fetch API by providing options to the `fetch` function.
