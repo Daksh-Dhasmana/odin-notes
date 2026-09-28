@@ -36,5 +36,9 @@ main().catch(console.error);
   - `Content-Type: application/json` tells the receiving server that the data inside the request body is formatted as a JSON string so it knows how to parse it.
   - `User-Agent` identifies the client or library making the request.
 
-# Customizing fetch API using undici
-- Undici allows you to customize the Fetch API by providing options to the `fetch` function.
+# Cross-Origin Resource Sharing(CORS)
+- 
+
+# Using Fetch API
+- The Fetch API provides a JavaScript interface for making HTTP requests and processing the responses.
+-  Fetch is promise-based and is integrated with features of the modern web such as service workers and Cross-Origin Resource Sharing (CORS).
