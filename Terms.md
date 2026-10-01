@@ -9,3 +9,6 @@
 
 ## 3) Throughput ##
 - Throughput is the amount of work or data a system processes within a given window of time
+
+## 4) Cross-Origin Resource Sharing(CORS) ##
+- 
