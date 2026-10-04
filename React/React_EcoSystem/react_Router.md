@@ -181,5 +181,19 @@ function SomeComponent() {
   );
 }
 ```
-  
 
+# React-Router-Hash-Link
+-  It is a specialized companion library for react-router-dom created specifically to solve one problem: scrolling to element IDs when using client-side routing.
+- In a standard React Router setup, if you write `<Link to="/#about">`, React Router updates the address bar URL to `/#about`, but the browser will not scroll down to the element with `id="about"`. This is because standard client-side routing prevents the browser's default anchor-jump behavior
+- React-router-hash-link fixes this by overriding `<Link>` so it automatically finds the element with matching ID and smoothly scrolls it into view.
+
+## Installation
+- `npm install react-router-hash-link`
+
+## Key Features
+- **Cross-Page Hash Navigation**: Works whether you are already on the same page (scrolling down from / to /#about) or navigating from a completely different page (jumping from /blog directly to /#about).
+- **Smooth Scrolling Support**: Supports native CSS smooth scrolling or custom JS smooth scroll behavior.
+- **Offset Handling for Fixed Navbars**: Provides a scroll prop that allows you to calculate offsets so your sticky top navbar doesn't cover up the top of the section.
+
+## Usage
+- 
