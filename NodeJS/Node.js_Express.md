@@ -1,0 +1,51 @@
+# Simple Web Server
+-  
+```
+const http = require('http')
+
+const app = http.createServer((request, response) => {
+  response.writeHead(200, { 'Content-Type': 'text/plain' })
+  response.end('Hello World')
+})
+
+const PORT = 3001
+app.listen(PORT)
+console.log(`Server running on port ${PORT}`)
+```
+- In first line, we import Node.js web-server module(http), It is simply a tool that allows an program to handle web requests.
+- The code uses `createServer` of http module to create a new web server. 
+  - This web server lives inside CPU, It listens on a network port, processes incoming requests (req), and returns responses (res).
+  - We use Express because Raw `http.createServer()` requires a lot of manual `if/else`, Frameworks like Express build on top of http.createServer() to make routing much cleaner.
+- An Event handler is registered to the server that is called **Every time** and http request is made.
+- Then request is responded with status code 200(success request), with `Content-Type` header set to `text/plain` and content is to returned set to `hello world`.
+- The Last row binds the app variable, to listen to HTTP requests send to port 3001.
+
+# Express
+- It's possible to send http requests with node.js alone but when application grows in size, it becomes cumbersome, that's why in here Express comes
+- `npm install express`
+-  
+```
+{
+  // ...
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
+```
+- To use it first, we have to import express
+-  
+```
+const express = require('express')
+const app = express()
+app.get('/', (request, response) => {
+  response.send('<h1>Hello World!</h1>')
+})
+const PORT = 3001
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`)
+})
+```
+- Now in above code, `get` indicates that the browser/client is asking to retrieve data from the web server at the / path. The site/URL doesn't reach the server on its own—the client sends an HTTP GET request to that path.
+- Here request slient send requests to web-server and response means sending details depending on fulfillment of request from server.
+- Here, we send a response using `.send` method,s that says `<h1>Hello World!</h1>`, this simply means here that, when the browser reaches `/` then it should display `Hello World`
+- Now, if you notice carefully, express automatically sets the `Content-Type` header.
