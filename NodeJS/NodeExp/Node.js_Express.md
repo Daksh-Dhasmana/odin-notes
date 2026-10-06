@@ -37,10 +37,19 @@ console.log(`Server running on port ${PORT}`)
 ```
 const express = require('express')
 const app = express()
-app.get('/', (request, response) => {
-  response.send('<h1>Hello World!</h1>')
+let notes=[
+  {
+    id:"1",
+    name:"Daksh",
+  }
+]
+app.get('/', (req, res) => {
+  res.send('<h1>Hello World!</h1>')
 })
-const PORT = 3001
+app.get("/api/notes",(req,res)=>{
+  res.json(notes);
+})
+const PORT = 3001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
@@ -48,4 +57,28 @@ app.listen(PORT, () => {
 - Now in above code, `get` indicates that the browser/client is asking to retrieve data from the web server at the / path. The site/URL doesn't reach the server on its own—the client sends an HTTP GET request to that path.
 - Here request slient send requests to web-server and response means sending details depending on fulfillment of request from server.
 - Here, we send a response using `.send` method,s that says `<h1>Hello World!</h1>`, this simply means here that, when the browser reaches `/` then it should display `Hello World`
-- Now, if you notice carefully, express automatically sets the `Content-Type` header.
+- Now, if you notice carefully, express automatically sets the `Content-Type` header to whatever type of Data we will be sending.
+- We used `response.json(notes)` instead of `response.send()` because `response.json()` explicitly informs Express to send formatted JSON data to the client.
+- The request is responded to with the json method of the response object. Calling the method will send the notes array that was passed to it as a JSON formatted string. Express automatically sets the Content-Type header with the appropriate value of application/json.
+- Add this to `package.json` file `"dev": "node --watch index.js",`
+- You can run the program using the command `npm run dev`
+
+## Fetching a single resource
+-  
+```
+app.get('/api/notes/:id', (request, response) => {
+  const id = request.params.id
+  const note = notes.find(note => note.id === id)
+  if (note) {
+    response.json(note)
+  } else {
+    response.status(404).end()
+  }
+})
+```
+- `request.params.id`, so in this, It's searching for a parameter by name of id.
+- `const note = notes.find(note => note.id === id)`, this lines means, there's a loop running in Notes, and then if current(note.id) matches id, then put that id into note variable, correct? and if there isn't a matching id, then puts undefined inside note variable.
+- And undefined is falsy.
+
+## Deleting Resources
+- 
