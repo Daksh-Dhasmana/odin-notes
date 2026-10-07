@@ -81,4 +81,56 @@ app.get('/api/notes/:id', (request, response) => {
 - And undefined is falsy.
 
 ## Deleting Resources
-- 
+-  
+```
+app.delete("/api/notes/:id",(res,req)=>{
+  const id=req.params.id;
+  notes=notes.filter(note=>note.id!=id);
+  res.status(204).end();
+})
+```
+- If you wanna test Delete, then you can use VS Code's REST client plug in. Like this
+- ![alt text](image-1.png)
+- ![alt text](image-2.png)
+
+## Adding/Requesting Data
+- Adding a data happens by sending a HTTP POST request to url and by sending all the info. new data in JSON format
+- For example:
+-  
+```
+const express = require('express')
+const app = express()
+
+
+app.use(express.json())
+
+//...
+
+
+app.post('/api/notes', (request, response) => {
+  const note = request.body
+  console.log(note)
+  response.json(note)
+})
+```
+- Now what's happening here is that, the that:
+- A client sends a POST request to a server an a particular URL endpoint, and then it's inside the server, so now we have to access that raw data using Express json-parser and convert it into normal json, and then store it on the database.
+- Without the json-parser, the `body` property would be undefined.
+
+## Testing Requests
+- You can install and extension of "REST Client", and then you can write multiple requests to test. Look below
+-  
+```
+GET  http://localhost:3001/api/notes
+###
+POST http://localhost:3001/api/notess HTTP/1.1
+Content-Type: application/json
+
+{
+    "id":"1",
+    "name":"Vance1"
+}
+```
+- In above, there are two requests, one for GET and one for POST, and we can test these seperately.
+- And in above code, we are mearly testing if it can recieve the code properly or not.
+- We have to write these test in a seperate `.test` file.
