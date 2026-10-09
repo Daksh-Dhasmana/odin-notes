@@ -15,7 +15,7 @@ console.log(`Server running on port ${PORT}`)
 - In first line, we import Node.js web-server module(http), It is simply a tool that allows an program to handle web requests.
 - The code uses `createServer` of http module to create a new web server. 
   - This web server lives inside CPU, It listens on a network port, processes incoming requests (req), and returns responses (res).
-  - We use Express because Raw `http.createServer()` requires a lot of manual `if/else`, Frameworks like Express build on top of http.createServer() to make routing much cleaner.
+  - We use Express because Raw `http.createServer()` requires a lot of manual `if/else`, Frameworks like Express are build on top of `http.createServer()` to make routing much cleaner.
 - An Event handler is registered to the server that is called **Every time** and http request is made.
 - Then request is responded with status code 200(success request), with `Content-Type` header set to `text/plain` and content is to returned set to `hello world`.
 - The Last row binds the app variable, to listen to HTTP requests send to port 3001.
@@ -49,7 +49,7 @@ app.get('/', (req, res) => {
 app.get("/api/notes",(req,res)=>{
   res.json(notes);
 })
-const PORT = 3001;
+const PORT = 3001;o
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
