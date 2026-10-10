@@ -2,6 +2,11 @@
 - REST stands for Representational State Transfer
 - It is not a programming language, library, or software tool—it is an architectural style (a set of guidelines and rules) for designing web APIs so that different applications (like React, mobile apps, or other servers) can communicate smoothly over HTTP.
 - An API that follows these rules is called RESTful.
+- In simple words, applying REST means applying CRUD
+  - Create(C)
+  - Read(R)
+  - Update(U)
+  - Delete(D)
 
 ## REST Resource
 - In REST, every resource have a associated URL which is the resource's unique address.

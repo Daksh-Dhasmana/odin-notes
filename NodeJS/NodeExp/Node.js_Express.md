@@ -117,6 +117,10 @@ app.post('/api/notes', (request, response) => {
 - A client sends a POST request to a server an a particular URL endpoint, and then it's inside the server, so now we have to access that raw data using Express json-parser and convert it into normal json, and then store it on the database.
 - Without the json-parser, the `body` property would be undefined.
 
+## Updating Data
+-  We can update data using `PATCH` and `PUT`.
+-  `PUT`: This request replaces the entire resource.
+-  `PATCH`: This request updates only specific fields of a resource.
 ## Testing Requests
 - You can install and extension of "REST Client", and then you can write multiple requests to test. Look below
 -  
@@ -134,3 +138,12 @@ Content-Type: application/json
 - In above, there are two requests, one for GET and one for POST, and we can test these seperately.
 - And in above code, we are mearly testing if it can recieve the code properly or not.
 - We have to write these test in a seperate `.test` file.
+
+## Middleware
+- The Express json-parser used earlier is a middleware.
+- Middleware are functions that can be used for handling `request` and `response` objects.
+- The json-parser we used earlier takes the raw data from the `requests` that are stored in the request object, parses it into a JavaScript object and assigns it to the `request` object as a new property body.
+- Middleware receives three parameters: `request`, `response`, `next`.
+- `next`: 
+  - If you don't send a response right there `(like res.json())`, you must call `next()` at the end of your function.
+  - Calling `next()` tells Express: "*My job is done. Hand control over to the next middleware function or route handler waiting down the line*.".
