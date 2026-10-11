@@ -147,3 +147,46 @@ Content-Type: application/json
 - `next`: 
   - If you don't send a response right there `(like res.json())`, you must call `next()` at the end of your function.
   - Calling `next()` tells Express: "*My job is done. Hand control over to the next middleware function or route handler waiting down the line*.".
+- Remember, middleware functions are called in the order that they're encountered by the JavaScript engine.
+- Express is basically like if-else chain, in theory.
+-  
+```
+const unknownEndpoint = (request, response) => {
+  response.status(404).send({ error: 'unknown endpoint' })
+}
+
+app.use(unknownEndpoint)
+```
+- Now in above code, It gives an error if there's an error in URL or the user stumbled upon a wrong URL, 
+- It is a good practise and we should put it on bottom of our chain.
+
+# Morgan
+- Morgan is a very popular, pre-built HTTP request logger middleware for Node.js and Express.
+- Instead of writing your own logging code from scratch, you install Morgan, plug it into Express, and it automatically prints clean, standardized logs for every incoming request right into your terminal.
+- eg:
+-  
+```
+const express = require('express')
+const morgan = require('morgan') // 1. Import morgan
+const app = express()
+
+// 2. Use morgan as middleware. 
+// 'tiny' is a built-in preset format that gives a short, clean log.
+app.use(morgan('tiny'))
+
+app.use(express.json())
+
+// A simple route
+app.get('/api/persons', (req, res) => {
+  res.json([
+    { id: "1", name: "Arto Hellas", number: "040-123456" }
+  ])
+})
+
+const PORT = 3001
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`)
+})
+```
+- If user stumbles upon wrong URL, morgan will automatically intercept it and print appropriate error messages.
+- You can install it through npm `npm install morgan` and then implement it using `app.use(morgan('tiny'))`.
