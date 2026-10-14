@@ -3,6 +3,8 @@
 - Unlike fetch, Axios is a 3rd party.
 - Axios and `fetch` do the same tasks but Axios is better than `fetch`.
 
+- NOTE: NEVER LEAVE AXIOS OUTSIDE IN OPEN, always wrap it inside a `useEffect` or something else 
+
 ## Why use Axios instead of `fetch`?
 1) Automatic JSON Parsing
     - With `fetch`: 
@@ -91,5 +93,7 @@ export default Disp
 ```
 - In above code,This section initializes your component's state using `useState` to track the person records and status messages, and defines the `postData` function which sends a new data object to your local server using `axios.post`, updating your status text depending on whether the network request succeeds or fails.
 - You should `event` only when:
-  - When stopping a form refresh `(onSubmit)`
+  - When stopping a form refresh (`onSubmit`)
     - You need `event.preventDefault()` to stop the browser from reloading the page and wiping out your React state.
+  - When reading typed input (`onChange`): 
+    - You need `event.target.value` to grab the exact text a user is typing into an input field.
