@@ -194,6 +194,3 @@ function SomeComponent() {
 - **Cross-Page Hash Navigation**: Works whether you are already on the same page (scrolling down from / to /#about) or navigating from a completely different page (jumping from /blog directly to /#about).
 - **Smooth Scrolling Support**: Supports native CSS smooth scrolling or custom JS smooth scroll behavior.
 - **Offset Handling for Fixed Navbars**: Provides a scroll prop that allows you to calculate offsets so your sticky top navbar doesn't cover up the top of the section.
-
-## Usage
-- 

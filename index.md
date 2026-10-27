@@ -10,3 +10,4 @@
 - [Node JS](./NodeJS/indexNode.md)
 - [Web Dev Important Terms](./Terms.md)
 - [SOLID Principles](./solid.md)
+- [LocalStorage](./localstorage.md)
