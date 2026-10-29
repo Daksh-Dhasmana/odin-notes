@@ -37,4 +37,6 @@ app.get('/:username/message',(req,res)=>{
 - Query parameters are a flexible, optional way to pass additional information to your Express application via the URL. 
 - They typically handle tasks like filtering, sorting, searching, or pagination. 
 - After the query is entered, Devs can then arrange the data recieved according to queries(like sort: ascending etc.).
-- `/api/posts?sort=date&time=latest`
+- `/api/posts?sort=date&time=latest`.
+- In this each query is a key-value pair and in format `key=value` and each query is seperated by `&`.
+- Express automatically parses any query parameters in a request and will populate the `req.query` object with any key-value pairs it finds. If any keys are repeated, Express will put all values for that key into an array.
