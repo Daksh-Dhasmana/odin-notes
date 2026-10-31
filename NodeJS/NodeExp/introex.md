@@ -67,7 +67,8 @@ module.exports = authorRouter;
 - Now in the `/:authorId` part, we stored the entered parameter in `authorId` variable, Now we can use `res.send()` to display appropriate message.
 - `res.send()` is a built-in method used to send response back to whoever made the request(like web-browsers)
 - Now after putting all routers into one place, we can use them as follows
--  
+-  Now we write below code in app.js 
+- 
 ```
 // app.js
 const express = require("express");
