@@ -17,4 +17,8 @@
       - This always sets `Content-Type` to `application/json`.
 3) `res.redirect`
       - This will redirect the client to a different URL.
-4) ``
+4) `res.render`
+      - It is used to send fully rendered HTML webpage to browser.
+      - It is strictly meant for traditional Server-Side Rendering (SSR) using template engines like EJS, Pug, or Handlebars, where the server builds the HTML page and sends it to the browser.
+      - REACT WILL NOT WORK! ONLY HTML!!
+5) `res.status`
