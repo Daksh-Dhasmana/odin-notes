@@ -1,0 +1,19 @@
+# Request-Response Cycle
+- The client (such as a web browser or frontend application) transmits an HTTP request across the network to the server's IP address. This request contains:
+  - **HTTP Method**: The operation type (e.g., GET to fetch data, POST to submit data).
+  - **URL/Path**: The specific resource endpoint (e.g., `/api/messages`).
+  - **Headers**: Metadata providing context about the client and expected data types.
+  - **Body**: Optional data payload sent with POST or PUT requests.
+- The Server Receives and Parses the Request
+  - The server captures the incoming network packet
+  - Frameworks like Express parse the URL path, extract route parameters (req.params) and query parameters (req.query), and match the request to the correct route handler function.
+- Server Execution and Database Access
+  - The server executes the logic inside the matched route handler or controller. 
+  - This typically involves executing database queries, processing variables, and compiling the required output data.
+- The Server Sends a Response
+  - Once execution completes, the server generates an HTTP response message and sends it back to the client. This response contains:
+    - **Status Code**: A numerical indicator of the result (e.g., 200 OK, 404 Not Found, 500 Internal Server Error).
+    - **Headers**: Metadata describing the payload format (e.g., `Content-Type: application/json`).
+    - **Body**: The actual data payload returned via methods like `res.json()` or `res.send()`.
+- The Client Processes the Response
+  - The client receives the response packet, reads the status code and headers, and executes instructions based on the payload body—such as parsing JSON data into memory or rendering HTML on the screen.

@@ -9,11 +9,3 @@
 
 ## 3) Throughput ##
 - Throughput is the amount of work or data a system processes within a given window of time
-
-## 4) Request-Response Cycle
-- The client (such as a web browser or frontend application) transmits an HTTP message across the network to the server's IP address. This request contains:
-  - HTTP Method: The operation type (e.g., GET to fetch data, POST to submit data).
-  - URL/Path: The specific resource endpoint (e.g., /api/messages).
-  - Headers: Metadata providing context about the client and expected data types.
-  - Body: Optional data payload sent with POST or PUT requests.
-- The Server Receives and Parses the Request
