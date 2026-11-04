@@ -8,4 +8,8 @@
 - We call it object because when you use it in JS, It takes form of an object- a container with properties(data) and method(functions).
 
 ## 3) Throughput ##
-- Throughput is the amount of work or data a system processes within a given window of time
+- Throughput is the amount of work or data a system processes within a given window of time.
+
+## 4) Decoupling ##
+- It means reducing the direct interdependency (coupling) between different components, modules, or layers of an application.
+- In simple words, functions/components exist independently and can interact with each other through a medium of sorts(interfaces etc.).
