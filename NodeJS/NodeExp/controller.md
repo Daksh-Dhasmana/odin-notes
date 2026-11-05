@@ -127,6 +127,7 @@ app.listen(3000, () => {
 
 # Controller
 - A controller is just the function that handles the actual work for a specific route.
+- It is a core concept in [MVC(Model-View-Controller)](./mvc.md)
 - Every single piece—parsers, loggers, auth checks, and route dispatchers—is just middleware sitting in a pipeline, inspecting the request, processing it, and finally handing it off to the correct controller to finish the job.
 - In short, middleware takes the request and then it selects the appropriate controller to handle the req.
 - The Router (or route matcher) is what maps the URL path and decides which controller to call.

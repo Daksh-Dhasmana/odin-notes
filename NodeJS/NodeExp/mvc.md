@@ -1,3 +1,15 @@
 # Model-View-Controller pattern
 - It is a software architectural pattern that separates an application into three distinct components based on their responsibilities.
-- 
+- It is divied into 3 layers: Model, view, controller
+- **Model(Data Layer)**
+  - The Model manages the application's data, database schemas, and data manipulation logic. It has no knowledge of HTTP requests, routers, or user interfaces.
+  - Defining database schemas and data types (e.g., Mongoose schemas in MongoDB).
+  - Executing database queries (find, create, updateOne, deleteOne).
+  - Enforcing data validation rules and constraints at the database level.
+  - Example: A User.js model that defines how user documents are structured in MongoDB and provides methods to query the database.
+- **The Controller(Business Logic Layer)**
+  - The Controller acts as the intermediary between the incoming HTTP request and the data models. It contains the core application business logic
+  - Receiving the request parameters, query strings, and request bodies from the Express route.
+  - Calling the appropriate Model methods to fetch or mutate data.
+  - Processing business rules and constructing the final HTTP response (res.json(), res.status()).
+  - Example: A userController.js file containing functions like getUserProfile or createNewUser.
