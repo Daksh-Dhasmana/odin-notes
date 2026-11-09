@@ -6,6 +6,7 @@
 - Additionally, we can insert conditional and/or loop logic into our template file, e.g. render the user’s username once they have logged in. 
 - This would not be possible with plain HTML. 
 - Any client-side JavaScript can still be added via a script tag.
+- And we will be using SSR instead of CSR.
 ## Difference between Client-Side Rendering(CSR) and Server-Side Rendering(SSR) 
 - ![alt text](image-3.png)
 - ![alt text](image-4.png)
