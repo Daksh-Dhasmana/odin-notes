@@ -12,9 +12,24 @@
 
 # Documents
 - It is the basic unit of MongoDB
-- MongoDB's object-oriented data model lets you structure data to mirror the object models in your codebase, which eliminates the object-relational mapping required by relational databases.
-- In simple words: MongoDB lets you store data in the same format your code uses.
+- A JSON-like record within a collection(like a row).
 
-# Installation
-  - 
+# Collection
+- A container for documents(like table).
 
+# Field
+- A key-value pair within a document(like a column).
+
+# SQL vs NoSQL
+- Scalability
+  - NoSQL: Designed to scale horizontally by adding more servers, distributing load across multiple nodes.
+  - SQL: Typically scales vertically by adding more resources to a single server, which has limits and can be costly. Horizontal scaling(Sharding) can be complex and less efficient.
+- Schema Flexibility
+  - NoSQL: Schema-less design allows for easy storage of diverse and rapidly changing data without needing to alter the schema 
+  - SQL: Requires a pre-defined. Altering schema(eg: adding new columns) can be complex and time-consuming with large datasets
+- Perfomance
+  - NoSQL: Optimized for high speed read and write operations, making it ideal for real time analysis and data processing.
+  - SQL: Though performant, can suffer from slower read/write operation when dealing with very large datasets due to ACID transaction overhead and complex joins.
+- Handling Unstructered Data
+  - NoSQL: Efficiently handles unstructured or semi-structured data which is common in real-time analytics.
+  - SQL: Best suited for structured data, Handling unstructed data requires complex transformations or additional systems(eg: strong JSON data in columns).
