@@ -12,3 +12,4 @@
 - [SOLID Principles](./solid.md)
 - [LocalStorage](./localstorage.md)
 - [MongoDB](./MondoDB/indexMongo.md)
+- [PostgreSQL](./PostgreSQL/indexSQL.md)
