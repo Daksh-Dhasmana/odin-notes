@@ -259,3 +259,53 @@ Here are the most common data types you will use across your full-stack projects
 * **`JSON` / `JSONB**`: Stores raw JSON data. `JSONB` (JSON Binary) is heavily preferred because it parses the data into a decomposed format, making it super fast to query nested keys. Perfect for user settings, API payloads, or flexible schemas.
 * **`UUID`**: Universally Unique Identifier. A 128-bit random string (e.g., `a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11`) often used for secure, unguessable primary keys instead of sequential numbers.
 * **`ARRAY`**: Allows you to store an array of values in a single column (e.g., `tags TEXT[]`).
+
+## Constraints
+- Constraints are rules you apply to your table columns to ensure the data entered into your database stays clean, accurate, and valid. If someone tries to break a rule, PostgreSQL will immediately reject the operation and throw an error.
+
+- Here are the most common constraints you will use in your SQL tables:
+
+### 1. `PRIMARY KEY`
+
+- Uniquely identifies every single row in a table. It automatically enforces two rules behind the scenes: **no duplicates (`UNIQUE`)** and **no empty values (`NOT NULL`)**.
+
+- * *Example:* `id SERIAL PRIMARY KEY`
+
+### 2. `NOT NULL`
+
+-Ensures that a column can never be left empty. If you try to insert a row without providing a value for this column, PostgreSQL will block it.
+
+- * *Example:* `email VARCHAR(100) NOT NULL`
+
+### 3. `UNIQUE`
+
+- Guarantees that all values in a column are distinct from one another. No two rows can have the exact same value in this column (commonly used for usernames, emails, or phone numbers).
+
+- * *Example:* `username VARCHAR(50) UNIQUE`
+
+### 4. `CHECK`
+
+- Allows you to set a custom mathematical or logical condition that data must satisfy before it can be saved.
+
+- * *Example:* `age INT CHECK (age >= 18)` (ensures nobody under 18 can be added).
+- * *Example:* `price NUMERIC(10, 2) CHECK (price > 0)` (ensures prices can't be negative).
+
+### 5. `DEFAULT`
+
+- Automatically assigns a fallback value to a column if you don't explicitly provide one during an `INSERT` command.
+
+- * *Example:* `is_active BOOLEAN DEFAULT TRUE`
+- * *Example:* `created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP`
+
+### 6. `FOREIGN KEY` (The Relationship Constraint)
+
+- Used to link two tables together. It ensures that a value in one table must match an existing primary key in another table, protecting you from "orphan" records.
+
+- * *Example:*
+```sql
+user_id INT REFERENCES users(id)
+
+```
+
+
+*(This ensures that a post or order can only be assigned to a `user_id` that actually exists in the `users` table).*
